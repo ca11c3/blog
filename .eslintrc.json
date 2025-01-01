@@ -1,3 +1,42 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+	"extends": ["next/core-web-vitals", "next/typescript"],
+	"rules": {
+		// Note: you must disable the base rule as it can report incorrect errors
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"react/no-unescaped-entities": "off",
+
+		// Naming conventions
+		"@typescript-eslint/naming-convention": [
+			"error",
+			// Interface names must start with I
+			{
+				"selector": "interface",
+				"format": ["PascalCase"]
+			},
+			// Type names must be PascalCase
+			{
+				"selector": "typeLike",
+				"format": ["PascalCase"]
+			},
+			// React components must be PascalCase
+			{
+				"selector": "variable",
+				"types": ["function"],
+				"format": ["PascalCase"],
+				"modifiers": ["exported"]
+			},
+			// Variables and functions use camelCase
+			{
+				"selector": "variable",
+				"format": ["camelCase", "UPPER_CASE"]
+			},
+			// Enum members use PascalCase
+			{
+				"selector": "enumMember",
+				"format": ["PascalCase"]
+			}
+		]
+	}
 }

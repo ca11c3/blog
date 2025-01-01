@@ -1,26 +1,43 @@
 {
-  "name": "blog-portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.20"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.20"
-  }
+    "name": "blog-portfolio",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@react-three/drei": "^9.120.4",
+        "@react-three/fiber": "^8.2.2",
+        "@sanity/icons": "^3.5.2",
+        "@sanity/image-url": "^1.1.0",
+        "@sanity/vision": "^3.67.1",
+        "framer-motion": "^11.14.4",
+        "framer-motion-3d": "^11.14.4",
+        "gl-noise": "^1.6.1",
+        "lucide-react": "^0.468.0",
+        "motion": "^11.14.4",
+        "next": "14.2.20",
+        "next-sanity": "^9.8.27",
+        "react": "^18",
+        "react-dom": "^18",
+        "sanity": "^3.67.1",
+        "styled-components": "^6.1.13",
+        "three": "^0.171.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.20",
+        "postcss": "^8",
+        "prettier": "^3.4.2",
+        "prettier-plugin-glsl": "^0.2.0",
+        "prettier-plugin-tailwindcss": "^0.6.9",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    }
 }

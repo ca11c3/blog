@@ -2,26 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+    --background: #0d0d0d;
+    --foreground: #f4f5f7;
+    --text-color: #f2f1f0;
+    --primary-color: #97b9ff;
+    --secondary-color: #e6f285;
+    --card-background: #262626;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    --background: #f2f1f0;
+    --foreground: #f4f5f7;
+    --text-color: #0d0d0d;
+    --primary-color: #e6f285;
+    --secondary-color: #007aff;
+    --card-background: #e4eaf2;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer components {
+    .social-link-text {
+        @apply font-mono text-base font-semibold;
+    }
+
+    .social-link-arrow-icon {
+        @apply -mb-0.5 -ml-1 inline h-[1.5rem] w-[1.5rem];
+    }
+
+    .screen-width {
+        @apply px-5 md:max-w-5xl md:px-12 lg:mx-auto;
+    }
+
+    .content-width {
+        @apply mx-auto px-5 md:max-w-2xl lg:max-w-4xl;
+    }
+
+    .screen-width-header {
+        @apply mx-auto max-w-5xl;
+    }
 }
