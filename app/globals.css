@@ -3,21 +3,41 @@
 @tailwind utilities;
 
 .dark {
-    --background: #0d0d0d;
-    --foreground: #f4f5f7;
-    --text-color: #f2f1f0;
-    --primary-color: #97b9ff;
-    --secondary-color: #e6f285;
+    --background: #121212;
+    /* --foreground: #f4f5f7; */
+    --text-color: #cccccc;
+    --primary-color: 151, 185, 255;
+    --secondary-color: 230, 242, 133;
     --card-background: #262626;
+
+    --primary-text: 244, 245, 247;
+    --secondary-text: 204, 204, 204;
+    --foreground: #262626;
 }
 
 :root {
-    --background: #f2f1f0;
-    --foreground: #f4f5f7;
-    --text-color: #0d0d0d;
-    --primary-color: #e6f285;
-    --secondary-color: #007aff;
+    --background: #f4f5f7;
+    /* --foreground: #f4f5f7; */
+    --primary-text: 18, 18, 18;
+    --secondary-text: 38, 38, 38;
+    --primary-color: 230, 242, 133;
+    --secondary-color: 0, 122, 255;
     --card-background: #e4eaf2;
+    --info: #007aff;
+    --success: #4cd964;
+    --warning: #ffcc00;
+}
+
+.radius {
+    &::after {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #4cd964;
+        box-shadow: 100px 100px 100px 100px rgba(0, 0, 0, 1);
+    }
 }
 
 @layer utilities {
@@ -44,6 +64,10 @@
     }
 
     .screen-width-header {
-        @apply mx-auto max-w-5xl;
+        @apply px-5;
+    }
+
+    .post-content-width {
+        @apply mx-auto px-5 md:max-w-2xl lg:max-w-4xl;
     }
 }

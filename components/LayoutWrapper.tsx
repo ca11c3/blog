@@ -1,7 +1,8 @@
 "use client";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { usePathname } from "next/navigation";
 
 type Props = {
     children: React.ReactNode;
@@ -19,16 +20,24 @@ const imgDomain = process.env.NEXT_PUBLIC_IMAGE_DOMAIN;
 
 function LayoutWrapper({ children }: Props) {
     const [theme, setTheme] = useState("dark" as "dark" | "light");
+
+    const pathname = usePathname();
+
+    if (pathname.includes("/admin")) {
+        return <> {children} </>;
+    }
+
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
                     "fixed h-screen w-full bg-background " +
-                    (theme == "dark" ? "dark" : "")
+                    (theme === "dark" ? "dark" : "")
                 }
             >
-                <div className="relative h-full w-full overflow-y-auto">
-                    <div className="absolute top-0 h-16 w-full">
+                <div className="relative flex h-screen w-full flex-col overflow-y-scroll">
+                    {/* Header 部分 */}
+                    <div className="sticky top-0 z-50 w-full">
                         <Header
                             imageUrl={
                                 theme === "dark"
@@ -37,13 +46,13 @@ function LayoutWrapper({ children }: Props) {
                             }
                         />
                     </div>
-                    <div className="relative top-16 h-full w-full">
-                        <div className="flex h-full w-full flex-col">
-                            <div className="pb-48">{children}</div>
-                            <div className="h-36 w-full">
-                                <Footer />
-                            </div>
-                        </div>
+
+                    {/* 动态内容部分 */}
+                    <div className="relative w-full">{children}</div>
+
+                    {/* Footer 部分 */}
+                    <div className="relative w-full">
+                        <Footer />
                     </div>
                 </div>
             </div>
