@@ -1,11 +1,21 @@
-import { PortableText, PortableTextComponents } from "next-sanity";
 import {
     Sandpack,
+    SandpackCodeEditor,
+    SandpackCodeViewer,
+    SandpackLayout,
     SandpackProvider,
-    useSandpack,
 } from "@codesandbox/sandpack-react";
-import { ArrowRight, Files } from "lucide-react";
-import { list } from "postcss";
+import { ArrowRight, CopyIcon } from "lucide-react";
+import { PortableText, PortableTextComponents } from "next-sanity";
+import { Span } from "next/dist/trace";
+import PrimaryButton from "./PrimaryButton";
+import CopyButton from "./CopyButton";
+
+// import { Refractor, registerLanguage } from "react-refractor";
+
+// Load any languages you want to use from `refractor`
+
+// registerLanguage(ts);
 
 export const articleStyle: PortableTextComponents = {
     marks: {
@@ -34,25 +44,27 @@ export const articleStyle: PortableTextComponents = {
     ),
     block: {
         normal: ({ children }) => (
-            <span className="text-secondary-text text-base leading-7">
+            <span className="text-base leading-7 text-secondary-text">
                 {children}
                 <br />
             </span>
         ),
 
         h3: ({ children }) => (
-            <h3 className="text-primary-text pb-2 pt-4 text-xl font-semibold">
+            <h3 className="pb-1 pt-2 text-xl font-semibold text-primary-text">
                 {children}
             </h3>
         ),
         h4: ({ children }) => (
-            <h4 className="text-primary-text text-lg font-bold">{children}</h4>
+            <h4 className="pb-1 pt-2 text-lg font-bold text-primary-text">
+                {children}
+            </h4>
         ),
     },
     types: {
         callout: ({ value }) => {
             return (
-                <div className="my-2 h-fit w-full rounded-lg bg-red-500 p-8 text-foreground">
+                <div className="mb-4 mt-2 h-fit w-full rounded-lg bg-red-500 p-8 text-foreground">
                     <PortableText
                         value={value.content}
                         components={calloutStyle}
@@ -60,16 +72,57 @@ export const articleStyle: PortableTextComponents = {
                 </div>
             );
         },
+
         code: ({ value }) => (
-            <Sandpack
-                files={{
-                    [`${value.filename}`]: `${value.code}`,
-                }}
-                options={{
-                    layout: "console", // preview | tests | console
-                }}
-                template="react"
-            ></Sandpack>
+            <div className="mt-2 flex w-[calc(100%_-_0px)] flex-col overflow-hidden rounded-lg border border-[rgba(var(--primary-text),0.5)] bg-[#151515]">
+                <div className="flex justify-between border-b border-[rgba(var(--primary-text),0.5)] p-4 text-primary-text">
+                    <div>{value.filename}</div>
+                    <div>
+                        <CopyButton code={value.code} />
+                    </div>
+                </div>
+                {/* <Refractor
+                    // In this example, `props` is the value of a `code` field
+                    language={value.language}
+                    value={value.code}
+                    // markers={value.highlightedLines}
+                /> */}
+
+                <Sandpack
+                    files={{
+                        [`${value.filename}`]: {
+                            code: value.code,
+                            hidden: false,
+                            active: true,
+                            readOnly: true,
+                        },
+
+                        "pages/index.js": {
+                            code: "",
+                            hidden: true,
+                            active: false,
+                        },
+                    }}
+                    options={{
+                        showLineNumbers: true,
+                        editorHeight: "100%",
+                        showTabs: false,
+                        readOnly: true,
+                        showNavigator: false,
+                        showConsole: false,
+                        layout: "editor" as any,
+                    }}
+                    theme={{
+                        colors: {
+                            surface1: "#151515",
+                        },
+                        font: {
+                            size: "14px",
+                            lineHeight: "18px",
+                        },
+                    }}
+                />
+            </div>
         ),
     },
 };
@@ -89,19 +142,19 @@ const calloutStyle: PortableTextComponents = {
     },
     block: {
         normal: ({ children }) => (
-            <span className="text-secondary-text text-base leading-7">
+            <span className="text-base leading-7 text-secondary-text">
                 {children}
                 <br />
             </span>
         ),
 
         h3: ({ children }) => (
-            <h3 className="text-primary-text pb-2 pt-4 text-xl font-semibold">
+            <h3 className="pb-2 pt-4 text-xl font-semibold text-primary-text">
                 {children}
             </h3>
         ),
         h4: ({ children }) => (
-            <h4 className="text-primary-text text-lg font-bold">{children}</h4>
+            <h4 className="text-lg font-bold text-primary-text">{children}</h4>
         ),
     },
 };

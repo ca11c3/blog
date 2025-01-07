@@ -16,7 +16,7 @@ const textVariants = {
     },
     hover: {
         opacity: 0.7,
-        color: "var(--primary-color)",
+        color: "rgb(var(--primary-color))",
     },
 };
 
@@ -40,7 +40,7 @@ const icon2Variants = {
         left: 0,
         opacity: [0, 0.7],
         x: 0,
-        color: "var(--primary-color)",
+        color: "rgb(var(--primary-color))",
         transition: {
             duration: 0.5,
             ease: "easeInOut",

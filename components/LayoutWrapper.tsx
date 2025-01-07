@@ -48,7 +48,9 @@ function LayoutWrapper({ children }: Props) {
                     </div>
 
                     {/* 动态内容部分 */}
-                    <div className="relative w-full">{children}</div>
+                    <div className="relative w-full px-5 lg:px-0">
+                        {children}
+                    </div>
 
                     {/* Footer 部分 */}
                     <div className="relative w-full">

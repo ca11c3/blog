@@ -36,7 +36,7 @@ async function page({ params: { slug } }: Props) {
 
     return (
         <div className="text-secondary-text relative flex h-full w-full gap-x-12">
-            <div className="max-w-4xl pt-7">
+            <div className="w-full pt-7 lg:max-w-4xl lg:pr-5 xl:pr-0">
                 <div className="-mt-1 mb-4">
                     <ReturnButton pathnames={"/"} />
                 </div>
