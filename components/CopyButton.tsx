@@ -22,7 +22,7 @@ function CopyButton({ code }: { code: string }) {
                 navigator.clipboard.writeText(code);
             }}
         >
-            {isCopied ? <CheckCheckIcon size={20} /> : <CopyIcon size={20} />}
+            {isCopied ? <CheckCheckIcon size={16} /> : <CopyIcon size={16} />}
         </PrimaryButton>
     );
 }

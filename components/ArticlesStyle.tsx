@@ -10,6 +10,7 @@ import { PortableText, PortableTextComponents } from "next-sanity";
 import { Span } from "next/dist/trace";
 import PrimaryButton from "./PrimaryButton";
 import CopyButton from "./CopyButton";
+import CodeSyntax from "./CodeSyntax";
 
 // import { Refractor, registerLanguage } from "react-refractor";
 
@@ -74,20 +75,23 @@ export const articleStyle: PortableTextComponents = {
         },
 
         code: ({ value }) => (
-            <div className="mt-2 flex w-[calc(100%_-_0px)] flex-col overflow-hidden rounded-lg border border-[rgba(var(--primary-text),0.5)] bg-[#151515]">
-                <div className="flex justify-between border-b border-[rgba(var(--primary-text),0.5)] p-4 text-primary-text">
-                    <div>{value.filename}</div>
+            <div className="relative mt-2 flex w-[calc(100%_-_0px)] flex-col overflow-hidden rounded-lg">
+                <div className="absolute flex w-full items-center justify-between px-4 pt-2 text-primary-text">
+                    <div className="rounded-lg bg-background p-1 px-2 font-mono text-sm">
+                        {value.filename}
+                    </div>
                     <div>
                         <CopyButton code={value.code} />
                     </div>
                 </div>
-                {/* <Refractor
-                    // In this example, `props` is the value of a `code` field
-                    language={value.language}
-                    value={value.code}
-                    // markers={value.highlightedLines}
-                /> */}
 
+                <div className="rounded-lg">
+                    <CodeSyntax
+                        codeString={value.code}
+                        highlightedLines={value.highlightedLines}
+                    />
+                </div>
+                {/* 
                 <Sandpack
                     files={{
                         [`${value.filename}`]: {
@@ -121,7 +125,7 @@ export const articleStyle: PortableTextComponents = {
                             lineHeight: "18px",
                         },
                     }}
-                />
+                /> */}
             </div>
         ),
     },

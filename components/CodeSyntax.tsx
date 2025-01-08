@@ -1,0 +1,97 @@
+"use client";
+
+import React, { useContext } from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {
+    docco,
+    dracula,
+    vs2015,
+    vs,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+import PrismLoader from "./PrismLoader";
+import { ThemeContext } from "./LayoutWrapper";
+import { CSSProperties } from "styled-components";
+
+function CodeSyntax({
+    codeString,
+    highlightedLines,
+}: {
+    codeString: string;
+    highlightedLines?: number[];
+}) {
+    const { theme } = useContext(ThemeContext);
+    return (
+        <SyntaxHighlighter
+            language="javascript"
+            style={theme === "dark" ? vs2015 : vs}
+            showLineNumbers
+            lineNumberStyle={(lineNumber) => {
+                if (highlightedLines && highlightedLines.includes(lineNumber)) {
+                    return {
+                        // background: "rgb(var(--primary-color),.1)",
+                        borderLeft: "2px solid rgb(var(--primary-color))",
+
+                        paddingLeft: ".8rem",
+                    };
+                } else {
+                    return {
+                        paddingLeft: ".8rem",
+                    };
+                }
+            }}
+            wrapLines={true}
+            lineProps={(lineNumber) => {
+                const style: CSSProperties = { display: "block" };
+                if (highlightedLines?.includes(lineNumber)) {
+                    style.backgroundColor = "rgb(var(--primary-color),.1)";
+                }
+                return {
+                    style,
+                    className: "code-line",
+                    onMouseEnter: (e: React.MouseEvent) => {
+                        const target = e.target as HTMLElement;
+                        // Check if the target element contains the `code-line` class
+                        if (target.classList.contains("code-line")) {
+                            target.classList.add("hover:bg-gray-800");
+                        }
+
+                        // Alternatively, check if the parent element contains the `code-line` class
+                        const parent = target.closest(
+                            ".code-line",
+                        ) as HTMLElement;
+                        if (parent) {
+                            parent.classList.add("hover:bg-gray-800");
+                        }
+                    },
+                    onMouseLeave: (e: React.MouseEvent) => {
+                        const target = e.target as HTMLElement;
+                        // Check if the target element contains the `code-line` class
+                        if (target.classList.contains("code-line")) {
+                            target.classList.remove("hover:bg-gray-800");
+                        }
+
+                        // Alternatively, check if the parent element contains the `code-line` class
+                        const parent = target.closest(
+                            ".code-line",
+                        ) as HTMLElement;
+                        if (parent) {
+                            parent.classList.remove("hover:bg-gray-800");
+                        }
+                    },
+                };
+            }}
+            customStyle={{
+                padding: "0px",
+                fontSize: "12px",
+
+                paddingTop: "3.0rem",
+                paddingBottom: ".8rem",
+            }}
+        >
+            {codeString}
+        </SyntaxHighlighter>
+    );
+}
+
+export default CodeSyntax;
