@@ -1,22 +1,7 @@
-import {
-    Sandpack,
-    SandpackCodeEditor,
-    SandpackCodeViewer,
-    SandpackLayout,
-    SandpackProvider,
-} from "@codesandbox/sandpack-react";
-import { ArrowRight, CopyIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PortableText, PortableTextComponents } from "next-sanity";
-import { Span } from "next/dist/trace";
-import PrimaryButton from "./PrimaryButton";
-import CopyButton from "./CopyButton";
 import CodeSyntax from "./CodeSyntax";
-
-// import { Refractor, registerLanguage } from "react-refractor";
-
-// Load any languages you want to use from `refractor`
-
-// registerLanguage(ts);
+import CopyButton from "./CopyButton";
 
 export const articleStyle: PortableTextComponents = {
     marks: {
@@ -51,13 +36,20 @@ export const articleStyle: PortableTextComponents = {
             </span>
         ),
 
-        h3: ({ children }) => (
-            <h3 className="pb-1 pt-2 text-xl font-semibold text-primary-text">
-                {children}
-            </h3>
-        ),
+        h3: ({ children, value }) => {
+            return (
+                <h3
+                    className={
+                        "scroll-mt-24 pb-1 pt-2 text-xl font-bold text-primary-text " +
+                        value._key
+                    }
+                >
+                    {children}
+                </h3>
+            );
+        },
         h4: ({ children }) => (
-            <h4 className="pb-1 pt-2 text-lg font-bold text-primary-text">
+            <h4 className="pb-1 pt-2 text-lg font-semibold text-primary-text">
                 {children}
             </h4>
         ),
@@ -75,7 +67,7 @@ export const articleStyle: PortableTextComponents = {
         },
 
         code: ({ value }) => (
-            <div className="relative mt-2 flex w-[calc(100%_-_0px)] flex-col overflow-hidden rounded-lg">
+            <div className="relative mt-2 flex flex-col overflow-hidden rounded-lg">
                 <div className="absolute flex w-full items-center justify-between px-4 pt-2 text-primary-text">
                     <div className="rounded-lg bg-background p-1 px-2 font-mono text-sm">
                         {value.filename}
@@ -85,7 +77,7 @@ export const articleStyle: PortableTextComponents = {
                     </div>
                 </div>
 
-                <div className="rounded-lg">
+                <div className="w-full rounded-lg">
                     <CodeSyntax
                         codeString={value.code}
                         highlightedLines={value.highlightedLines}

@@ -2,16 +2,10 @@
 
 import React, { useContext } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-    docco,
-    dracula,
-    vs2015,
-    vs,
-} from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { vs, vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import PrismLoader from "./PrismLoader";
-import { ThemeContext } from "./LayoutWrapper";
 import { CSSProperties } from "styled-components";
+import { ThemeContext } from "./LayoutWrapper";
 
 function CodeSyntax({
     codeString,
@@ -29,9 +23,7 @@ function CodeSyntax({
             lineNumberStyle={(lineNumber) => {
                 if (highlightedLines && highlightedLines.includes(lineNumber)) {
                     return {
-                        // background: "rgb(var(--primary-color),.1)",
                         borderLeft: "2px solid rgb(var(--primary-color))",
-
                         paddingLeft: ".8rem",
                     };
                 } else {
@@ -42,13 +34,15 @@ function CodeSyntax({
             }}
             wrapLines={true}
             lineProps={(lineNumber) => {
-                const style: CSSProperties = { display: "block" };
+                const style: CSSProperties = {
+                    display: "block",
+                };
                 if (highlightedLines?.includes(lineNumber)) {
                     style.backgroundColor = "rgb(var(--primary-color),.1)";
                 }
                 return {
                     style,
-                    className: "code-line",
+                    className: "code-line md:w-full w-[200%]",
                     onMouseEnter: (e: React.MouseEvent) => {
                         const target = e.target as HTMLElement;
                         // Check if the target element contains the `code-line` class
@@ -84,7 +78,6 @@ function CodeSyntax({
             customStyle={{
                 padding: "0px",
                 fontSize: "12px",
-
                 paddingTop: "3.0rem",
                 paddingBottom: ".8rem",
             }}
