@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { PortableText, PortableTextComponents } from "next-sanity";
 import CodeSyntax from "./CodeSyntax";
 import CopyButton from "./CopyButton";
+import { link } from "fs";
 
 export const articleStyle: PortableTextComponents = {
     marks: {
@@ -40,9 +41,10 @@ export const articleStyle: PortableTextComponents = {
             return (
                 <h3
                     className={
-                        "scroll-mt-24 pb-1 pt-2 text-xl font-bold text-primary-text " +
-                        value._key
+                        "scroll-mt-24 pb-1 pt-2 text-xl font-bold text-primary-text"
                     }
+                    id={value._key}
+                    data-section-id={value._key}
                 >
                     {children}
                 </h3>
@@ -72,7 +74,7 @@ export const articleStyle: PortableTextComponents = {
                     <div className="rounded-lg bg-background p-1 px-2 font-mono text-sm">
                         {value.filename}
                     </div>
-                    <div>
+                    <div className="hidden md:flex">
                         <CopyButton code={value.code} />
                     </div>
                 </div>
@@ -135,6 +137,20 @@ const calloutStyle: PortableTextComponents = {
                 {children}
             </code>
         ),
+        link: ({ children, value }) => {
+            const rel = !value.href?.startsWith("/")
+                ? "noreferrer noopener"
+                : undefined;
+            return (
+                <a
+                    href={value.href}
+                    rel={rel}
+                    className="font-medium text-secondary-text underline underline-offset-2"
+                >
+                    {children}
+                </a>
+            );
+        },
     },
     block: {
         normal: ({ children }) => (

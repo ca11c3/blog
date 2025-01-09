@@ -1,11 +1,8 @@
 import { articleStyle } from "@/components/ArticlesStyle";
 import ReturnButton from "@/components/ReturnButton";
 import TableOfContent from "@/components/TableOfContent";
-import TableOfContentTitle from "@/components/TocTitle";
 import { getPost } from "@/sanity/lib/action";
-import { Table } from "lucide-react";
 import { PortableText } from "next-sanity";
-import React from "react";
 
 type Props = {
     params: {
@@ -40,7 +37,7 @@ async function page({ params: { slug } }: Props) {
 
     return (
         <div className="relative flex h-full w-full gap-x-12 text-secondary-text">
-            <div className="w-full pt-7 lg:max-w-4xl lg:pr-5 xl:pr-0">
+            <div className="blog-post w-full scroll-smooth pt-7 lg:max-w-4xl lg:pr-5 xl:pr-0">
                 <div className="-mt-1 mb-4">
                     <ReturnButton pathnames={"/"} />
                 </div>
@@ -48,7 +45,7 @@ async function page({ params: { slug } }: Props) {
                     {post[0].title}
                 </h1>
 
-                <div className="blog-post scroll-smooth pb-32 pt-4">
+                <div className="pb-32 pt-4">
                     <PortableText
                         value={post[0].body}
                         components={articleStyle}
