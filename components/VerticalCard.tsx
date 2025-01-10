@@ -3,30 +3,84 @@
 import React from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { init } from "next/dist/compiled/webpack/webpack";
+import { Repeat } from "lucide-react";
+const cardVariants = {
+    initial: {
+        scale: 1,
+        transition: {
+            duration: 0.3,
+            ease: "easeInOut",
+        },
+    },
+    hover: {
+        scale: 1.05,
+        transition: {
+            duration: 0.3,
+            ease: "easeInOut",
+        },
+    },
+};
 
+const tagVariants = {
+    initial: {
+        rotate: 0,
+        transition: {
+            duration: 0.3,
+            ease: "easeInOut",
+        },
+    },
+    hover: {
+        rotate: 360,
+        transition: {
+            type: "spring",
+            repeat: Infinity,
+            repeatDelay: 0.2,
+        },
+    },
+};
 function VerticalCard({ post }: { post: IPost }) {
     const router = useRouter();
     console.log("Post", post);
+
+    const [isHovered, setIsHovered] = React.useState(false);
+
     return (
         <motion.div
             className="relative flex max-h-96 flex-col rounded-xl bg-transparent"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.05 }}
             onClick={() => {
                 router.push(`/posts/${post.slug.current}`);
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="relative min-h-64 rounded-3xl bg-red-800 before:absolute before:bottom-12 before:right-0 before:z-0 before:h-12 before:w-12 before:rounded-br-2xl before:shadow-[0px_15px_0px_0px_var(--background)] after:absolute after:bottom-0 after:right-40 after:z-0 after:h-12 after:w-12 after:rounded-br-2xl after:shadow-[0px_15px_0px_0px_var(--background)]">
-                <div className="absolute bottom-0 right-0 z-0 flex h-12 min-w-40 rounded-tl-3xl bg-background"></div>
-                <div className="absolute bottom-0 right-2 z-10 flex max-w-40 justify-end text-nowrap rounded-3xl bg-primary p-2 text-sm text-foreground">
+            <motion.div
+                className="relative min-h-64 rounded-3xl bg-red-800"
+                variants={cardVariants}
+                initial="initial"
+                animate={isHovered ? "hover" : "initial"}
+            >
+                {/* rounded corner  */}
+                <motion.div className="absolute bottom-12 right-0 z-0 h-12 w-12 rounded-br-3xl shadow-[0px_20px_0px_0px_var(--background)]"></motion.div>
+                {/* rounded corner  */}
+                <motion.div className="absolute bottom-0 right-40 z-0 h-12 w-12 rounded-br-3xl shadow-[0px_20px_0px_0px_var(--background)]"></motion.div>
+
+                <motion.div className="absolute bottom-0 right-0 z-0 flex h-12 min-w-40 rounded-tl-3xl bg-background"></motion.div>
+
+                <motion.div
+                    className="absolute bottom-0 right-2 z-10 flex max-w-40 justify-end text-nowrap rounded-3xl bg-primary p-2 text-sm text-foreground"
+                    variants={tagVariants}
+                    initial="initial"
+                    animate={isHovered ? "hover" : "initial"}
+                >
                     {post.categories[0]}
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
             <div className="relative p-4">
-                <h2 className="text-primary-text text-xl font-bold">
+                <h2 className="text-xl font-bold text-primary-text">
                     {post.title}
                 </h2>
-                <p className="text-secondary-text text-sm">Description</p>
+                <p className="text-sm text-secondary-text">Description</p>
             </div>
         </motion.div>
     );

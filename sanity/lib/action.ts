@@ -6,6 +6,7 @@ import { client } from "./client";
 export async function getLandingBody() {
     return client.fetch(groq`*[_type == "landingContent"]{
     body,
+    greetings,
   }`);
 }
 

@@ -30,6 +30,7 @@
         "react-lowlight": "^3.0.1",
         "react-syntax-highlighter": "^15.6.1",
         "sanity": "^3.67.1",
+        "split-type": "^0.3.4",
         "styled-components": "^6.1.13",
         "three": "^0.171.0"
     },
