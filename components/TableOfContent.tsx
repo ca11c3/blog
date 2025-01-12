@@ -52,7 +52,7 @@ export default function TableOfContent({ toc }: { toc: Toc[] }) {
 
     return (
         <div>
-            <div className="ml-2 space-y-0 border-l-[1px]">
+            <div className="ml-2 space-y-0 border-l-[1px] border-[rgba(var(--t-tertiary),0.2)]">
                 {toc.map((section) => (
                     <TocTitle
                         title={section.title}

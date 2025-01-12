@@ -45,7 +45,7 @@ const MotionTextWithIcon: React.FC<Props> = ({ children, icon }) => {
 
     return (
         <motion.div
-            className="relative flex h-fit w-fit flex-row items-center text-contrast"
+            className="text-t-tertiary relative flex h-fit w-fit flex-row items-center"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

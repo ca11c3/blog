@@ -10,14 +10,14 @@ function PostTitle({ slug, title }: { slug: string; title: string }) {
 
     const textVariants = {
         initial: {
-            color: "rgb(var(--primary-text))",
+            color: "rgb(var(--t-primary))",
             transition: {
                 duration: 0.2,
                 ease: "easeInOut",
             },
         },
         hover: {
-            color: "rgb(var(--primary-color))",
+            color: "rgb(var(--n-primary))",
 
             transition: {
                 duration: 0.2,
@@ -30,9 +30,8 @@ function PostTitle({ slug, title }: { slug: string; title: string }) {
             borderBottomRightRadius: "0.5rem",
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
-            borderLeft: "2px solid rgb(var(--primary-color))",
-            color: "rgb(var(--primary-text))",
-            backgroundColor: "rgba(var(--primary-color),.5)",
+            borderLeft: "2px solid rgb(var(--n-primary))",
+            color: "rgb(var(--n-primary))",
 
             transition: {
                 duration: 0.2,

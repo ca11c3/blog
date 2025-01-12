@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import { Bowlby_One_SC, Paytone_One, Rammetto_One } from "next/font/google";
 
 const geistSans = localFont({
     src: "/fonts/GeistVF.woff",
@@ -12,6 +13,12 @@ const geistMono = localFont({
     src: "/fonts/GeistMonoVF.woff",
     variable: "--font-geist-mono",
     weight: "100 900",
+});
+
+const paytone_one = Paytone_One({
+    variable: "--font-paytone-one",
+    weight: "400",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +34,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${paytone_one.variable} antialiased`}
             >
                 <LayoutWrapper>{children}</LayoutWrapper>
             </body>

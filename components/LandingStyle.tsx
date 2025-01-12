@@ -3,7 +3,7 @@ import { PortableTextComponents } from "next-sanity";
 export const landingStyle: PortableTextComponents = {
     block: {
         h4: ({ children }) => (
-            <div className="text-xl font-light leading-relaxed text-secondary-text lg:text-2xl">
+            <div className="text-xl font-light leading-normal tracking-tight">
                 {children}
             </div>
         ),
@@ -16,7 +16,7 @@ export const greetingsStyle: PortableTextComponents = {
             return (
                 <h1
                     className={
-                        "pb-1 pt-2 text-2xl font-bold leading-normal text-primary-text lg:text-4xl"
+                        "text-2xl font-semibold leading-normal tracking-tight"
                     }
                 >
                     {children}

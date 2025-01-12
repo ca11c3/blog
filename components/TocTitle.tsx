@@ -24,14 +24,14 @@ function TocTitle({
 }) {
     const textVariants = {
         initial: {
-            color: "rgb(var(--primary-text))",
+            color: "rgb(var(--t-secondary))",
             transition: {
                 duration: 0.2,
                 ease: "easeInOut",
             },
         },
         hover: {
-            color: "rgb(var(--primary-color))",
+            color: "rgb(var(--b-secondary))",
 
             transition: {
                 duration: 0.2,
@@ -44,9 +44,9 @@ function TocTitle({
             borderBottomRightRadius: "0.5rem",
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
-            borderLeft: "2px solid rgb(var(--primary-color))",
-            color: "rgb(var(--primary-color))",
-            backgroundColor: "rgba(var(--primary-color),.1)",
+            borderLeft: "2px solid rgb(var(--b-secondary))",
+            color: "rgb(var(--b-secondary))",
+            fontWeight: "bold",
             transition: {
                 duration: 0.2,
                 ease: "easeInOut",

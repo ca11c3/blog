@@ -12,19 +12,19 @@ export const articleStyle: PortableTextComponents = {
             </strong>
         ),
         code: ({ children }) => (
-            <code className="rounded-lg border-[1px] bg-white bg-opacity-10 p-1 font-mono text-sm text-red-500">
+            <code className="text-n-primary rounded-lg p-1 font-mono text-sm">
                 {children}
             </code>
         ),
     },
     list: ({ children }) => (
-        <ul className="my-2 h-fit w-full rounded-lg bg-red-500 p-8">
+        <ul className="my-2 h-fit w-full rounded-lg bg-[rgba(var(--n-tertiary),.1)] p-8">
             {children}
         </ul>
     ),
     listItem: ({ children }) => (
         <li className="my-2 flex items-start gap-x-2 text-base">
-            <ArrowRight size={20} className="mt-0.5 text-primary" />
+            <ArrowRight size={20} className="text-n-tertiary mt-0.5" />
 
             {children}
         </li>
@@ -59,7 +59,7 @@ export const articleStyle: PortableTextComponents = {
     types: {
         callout: ({ value }) => {
             return (
-                <div className="mb-4 mt-2 h-fit w-full rounded-lg bg-red-500 p-8 text-foreground">
+                <div className="mb-4 mt-2 h-fit w-full rounded-lg bg-[rgba(var(--b-primary),0.1)] p-8 text-foreground">
                     <PortableText
                         value={value.content}
                         components={calloutStyle}
@@ -71,7 +71,7 @@ export const articleStyle: PortableTextComponents = {
         code: ({ value }) => (
             <div className="relative mt-2 flex flex-col overflow-hidden rounded-lg">
                 <div className="absolute flex w-full items-center justify-between px-4 pt-2 text-primary-text">
-                    <div className="rounded-lg bg-background p-1 px-2 font-mono text-sm">
+                    <div className="bg-n-secondary text-t-primary rounded-lg p-1 px-2 font-mono text-sm">
                         {value.filename}
                     </div>
                     <div className="hidden md:flex">
@@ -133,7 +133,7 @@ const calloutStyle: PortableTextComponents = {
             </strong>
         ),
         code: ({ children }) => (
-            <code className="rounded-lg border-[1px] bg-white bg-opacity-10 p-1 font-mono text-sm text-primary">
+            <code className="text-b-primary rounded-lg p-1 font-mono text-sm">
                 {children}
             </code>
         ),

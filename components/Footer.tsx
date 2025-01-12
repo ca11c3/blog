@@ -6,10 +6,10 @@ import MotionTextWithIcon from "./MotionTextWithIcon";
 
 function Footer() {
     return (
-        <div className="mx-auto my-12 flex flex-col space-y-2 px-5 text-contrast md:h-24 md:flex-row md:justify-between md:space-y-0 lg:max-w-7xl">
+        <div className="text-t-tertiary mx-auto my-12 flex flex-col space-y-2 px-5 md:h-24 md:flex-row md:justify-between md:space-y-0 lg:max-w-7xl">
             <div className="grid grid-cols-2 md:w-2/3">
                 <div className="grid grid-cols-2">
-                    <div className="hidden text-nowrap text-sm text-contrast opacity-80 lg:flex">
+                    <div className="text-t-primary hidden text-nowrap text-sm lg:flex">
                         If you want to know my,
                     </div>
                     <div className="">
@@ -36,7 +36,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
-                    <div className="hidden text-nowrap text-sm text-contrast opacity-80 lg:flex">
+                    <div className="text-t-primary hidden text-nowrap text-sm lg:flex">
                         If you want to contact me,
                     </div>
                     <div className="social-link-text">
@@ -75,7 +75,7 @@ function Footer() {
             </div>
 
             <div className="mt-0 flex h-full w-full items-start justify-start md:w-1/3 md:justify-end">
-                <div className="text-start text-contrast">
+                <div className="text-t-secondary text-start">
                     <Copyright
                         strokeWidth={2}
                         size={14}

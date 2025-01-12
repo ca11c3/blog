@@ -19,7 +19,7 @@ export const ThemeContext = createContext<{
 const imgDomain = process.env.NEXT_PUBLIC_IMAGE_DOMAIN;
 
 function LayoutWrapper({ children }: Props) {
-    const [theme, setTheme] = useState("dark" as "dark" | "light");
+    const [theme, setTheme] = useState("light" as "dark" | "light");
 
     const pathname = usePathname();
 
@@ -31,8 +31,8 @@ function LayoutWrapper({ children }: Props) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
-                    "fixed h-screen w-full bg-background " + ""
-                    // (theme === "dark" ? "dark" : "")
+                    "fixed h-screen w-full bg-background " +
+                    (theme === "dark" ? "dark" : "")
                 }
             >
                 <div className="relative flex h-screen w-full flex-col overflow-y-scroll">
