@@ -100,11 +100,11 @@
 
 @layer components {
     .social-link-text {
-        @apply font-mono text-base font-semibold;
+        @apply text-sm;
     }
 
     .social-link-arrow-icon {
-        @apply -mb-0.5 -ml-1 inline h-[1.5rem] w-[1.5rem];
+        @apply inline h-[1.5rem] w-[1.2rem];
     }
 
     .screen-width {
@@ -116,10 +116,14 @@
     }
 
     .screen-width-header {
-        @apply px-5 md:px-12;
+        @apply mx-auto max-w-[1575px] px-5 md:px-12;
     }
 
     .post-content-width {
         @apply mx-auto px-5 md:max-w-2xl lg:max-w-4xl;
+    }
+
+    .screen-width-footer {
+        @apply mx-auto max-w-[1575px] px-5 md:px-0;
     }
 }
