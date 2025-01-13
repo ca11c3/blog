@@ -154,7 +154,7 @@ function GreetingsCardLeft({
             </motion.div>
 
             <motion.div
-                className="text-n-tertiary bg-t-tertiary absolute left-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl p-2 font-semibold"
+                className="text-n-tertiary bg-t-primary absolute left-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl p-2 font-semibold"
                 variants={tagVariants}
                 initial="initial"
                 animate={isHovered ? "hover" : "initial"}

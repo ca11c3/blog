@@ -46,9 +46,9 @@ function Header({ imageUrl }: Props) {
                         }}
                     >
                         {themeContext.theme === "dark" ? (
-                            <SunIcon className="text-secondary-text h-6 w-5" />
+                            <SunIcon className="text-t-secondary h-6 w-5" />
                         ) : (
-                            <MoonIcon className="text-secondary-text h-6 w-5" />
+                            <MoonIcon className="text-t-secondary h-6 w-5" />
                         )}
                     </PrimaryButton>
                 </div>

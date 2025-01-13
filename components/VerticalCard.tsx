@@ -62,7 +62,7 @@ function VerticalCard({ post }: { post: IPost }) {
                     animate={isHovered ? "hover" : "initial"}
                 ></motion.div>
                 <motion.div
-                    className="text-b-secondary bg-b-primary absolute bottom-0 right-2 z-10 flex max-w-40 justify-end text-nowrap rounded-3xl p-2 text-sm font-semibold"
+                    className="text-b-accent-green-grey bg-b-tertiary absolute bottom-0 right-2 z-10 flex max-w-40 justify-end text-nowrap rounded-3xl p-2 text-sm font-semibold"
                     variants={tagVariants}
                     initial="initial"
                     animate={isHovered ? "hover" : "initial"}
@@ -71,10 +71,10 @@ function VerticalCard({ post }: { post: IPost }) {
                 </motion.div>
             </div>
             <div className="relative p-4">
-                <h2 className="text-xl font-bold text-primary-text">
+                <h2 className="text-t-primary text-xl font-bold">
                     {post.title}
                 </h2>
-                <p className="text-sm text-secondary-text">Description</p>
+                <p className="text-t-secondary text-sm">Description</p>
             </div>
         </motion.div>
     );

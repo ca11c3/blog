@@ -17,7 +17,7 @@ function PostTitle({ slug, title }: { slug: string; title: string }) {
             },
         },
         hover: {
-            color: "rgb(var(--n-primary))",
+            color: "rgba(var(--b-tertiary),.5)",
 
             transition: {
                 duration: 0.2,
@@ -30,8 +30,9 @@ function PostTitle({ slug, title }: { slug: string; title: string }) {
             borderBottomRightRadius: "0.5rem",
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
-            borderLeft: "2px solid rgb(var(--n-primary))",
-            color: "rgb(var(--n-primary))",
+            borderLeft: "2px solid rgb(var(--b-tertiary))",
+            color: "rgb(var(--b-tertiary))",
+            fontWidth: "extrabold",
 
             transition: {
                 duration: 0.2,

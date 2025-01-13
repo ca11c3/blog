@@ -19,7 +19,7 @@ export default async function Home() {
     const posts = await getPosts();
 
     return (
-        <div className="screen-width relative text-primary-text">
+        <div className="screen-width text-t-tertiary relative">
             {/* <div className="top-q absolute left-0 z-0 h-full w-full">
                 <Grid></Grid>
             </div> */}

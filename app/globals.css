@@ -3,16 +3,31 @@
 @tailwind utilities;
 
 .dark {
-    --background: #121212;
     /* --foreground: #f4f5f7; */
     --text-color: #cccccc;
-    --primary-color: 151, 185, 255;
-    --secondary-color: 230, 242, 133;
-    --card-background: #262626;
 
-    --primary-text: 244, 245, 247;
-    --secondary-text: 204, 204, 204;
-    --foreground: #262626;
+    --background: 13, 13, 13;
+    --foreground: 64, 63, 62;
+
+    --t-primary: 255, 243, 235;
+    --t-secondary: 217, 217, 217;
+    --t-tertiary: 229, 229, 229;
+
+    --n-primary: 240, 77, 24;
+    --n-secondary: 86, 110, 61;
+    --n-tertiary: 24, 46, 149;
+
+    --b-primary: 14, 56, 125;
+    --b-secondary: 114, 185, 239;
+    --b-tertiary: 232, 135, 30;
+    --b-info: 29, 79, 160;
+    --b-warning: 248, 180, 27;
+    --b-success: 75, 127, 82;
+    --b-accent: 54, 54, 54;
+    --b-accent-grey: 42, 49, 61;
+    --b-accent-green-grey: 43, 49, 63;
+    --b-accent-green: 127, 239, 189;
+    --b-accent-success: 125, 209, 129;
 }
 
 :root {
@@ -26,31 +41,31 @@
     --success: #4cd964;
     --warning: #ffcc00;
 
-    /* --n-primary: 56, 5, 242;
-    --n-secondary: 0, 123, 255;
-    --n-accent: 191, 242, 5;
-    --n-tertiary: 5, 72, 242; */
-
     --background: 244, 245, 247;
     --foreground: 228, 228, 228;
 
     --n-primary: 228, 67, 48;
-    --n-secondary: 217, 185, 132;
-    --n-tertiary: 89, 161, 173;
-
-    --b-primary: 38, 81, 167;
-    --b-secondary: 247, 189, 2;
-    --b-tertiary: 133, 129, 113;
+    --n-secondary: 126, 179, 86;
+    --n-tertiary: 90, 161, 218;
 
     --t-primary: 38, 38, 38;
     --t-secondary: 51, 51, 51;
     --t-tertiary: 64, 63, 62;
 
-    --n-accent: 167, 244, 50;
+    /* Not-in use */
+    --b-primary: 14, 56, 125;
+    --b-accent: 54, 54, 54;
 
-    --n-accent-2: 0, 251, 255;
-    --n-accent-yellow: 247, 232, 164;
-    --n-accent-green: 224, 248, 216;
+    /* in Use */
+    --b-secondary: 30, 150, 252;
+    --b-tertiary: 230, 105, 37;
+    --b-info: 162, 214, 249;
+    --b-warning: 255, 228, 94;
+    --b-success: 107, 212, 37;
+    --b-accent-grey: 203, 204, 203;
+    --b-accent-green-grey: 236, 235, 228;
+    --b-accent-green: 1, 190, 254;
+    --b-accent-success: 14, 143, 0;
 }
 
 .radius {
@@ -90,6 +105,12 @@
     mask-position: top right;
     mask-image: url("/card-path-tr.svg");
     -webkit-mask-image: url("/card-path-tr.svg");
+}
+
+.masked-bg-small-tr {
+    mask-position: top right;
+    mask-image: url("/small-full-corner.svg");
+    -webkit-mask-image: url("/small-full-corner.svg");
 }
 
 @layer utilities {

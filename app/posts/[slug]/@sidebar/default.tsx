@@ -19,7 +19,7 @@ async function Sidebar() {
     console.log(groupedByCategory);
 
     return (
-        <div className="px-5 text-primary-text">
+        <div className="text-t-primary px-5">
             {Object.entries(groupedByCategory).map(([category, posts]: any) => (
                 <div key={category} className="category-group mb-8">
                     <h2 className="mb-2 text-base font-bold">{category}</h2>

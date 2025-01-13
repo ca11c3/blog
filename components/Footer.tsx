@@ -3,18 +3,19 @@
 import { ArrowUpRight, Copyright } from "lucide-react";
 import React from "react";
 import MotionTextWithIcon from "./MotionTextWithIcon";
+import StaggerObjectSlideIn from "./StaggerObjectSlideIn";
 
 function Footer() {
     return (
-        <div className="screen-width-footer grid h-28 grid-cols-12">
+        <div className="screen-width-footer grid h-32 grid-cols-12 overflow-hidden">
             {/* XHS Posting */}
 
-            <div className="col-span-2 flex items-center gap-x-2 lg:col-span-2">
-                <div className="bg-t-primary w-fit p-2 text-center text-base leading-tight text-background">
+            <div className="col-span-2 flex items-center gap-x-5 lg:col-span-2">
+                <div className="footer-item bg-t-primary w-fit p-4 py-4 text-center text-base leading-none text-background">
                     FPS
                     <br /> #5
                 </div>
-                <h1 className="hidden text-base leading-tight lg:block">
+                <h1 className="footer-item text-t-secondary hidden text-base leading-tight lg:block">
                     Learning is fun
                     <br />
                     while Painful
@@ -23,12 +24,12 @@ function Footer() {
 
             {/* Get in touch */}
             <div className="col-span-10 flex flex-col justify-center lg:col-span-5 lg:gap-x-2">
-                <div className="hidden lg:block">
+                <div className="footer-item hidden lg:block">
                     <div className="text-t-primary mt-2 hidden text-nowrap text-sm lg:flex">
                         Get in touch,
                     </div>
                 </div>
-                <div className="w-full">
+                <div className="footer-item w-full">
                     <div className="grid grid-rows-2 font-semibold lg:flex lg:gap-x-10">
                         <div className="row-span-1 flex gap-x-5 lg:gap-x-10">
                             <MotionTextWithIcon
@@ -95,7 +96,7 @@ function Footer() {
 
             {/* Copyright */}
 
-            <div className="col-span-12 flex items-center justify-start lg:col-span-5 lg:justify-end lg:pr-10">
+            <div className="footer-item col-span-12 flex items-center justify-start lg:col-span-5 lg:justify-end lg:pr-10">
                 <div className="text-t-secondary text-start text-xs font-medium leading-none">
                     <Copyright
                         strokeWidth={2}

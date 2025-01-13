@@ -23,7 +23,7 @@ function CodeSyntax({
             lineNumberStyle={(lineNumber) => {
                 if (highlightedLines && highlightedLines.includes(lineNumber)) {
                     return {
-                        borderLeft: "2px solid rgb(var(--b-primary))",
+                        borderLeft: "2px solid rgb(var(--b-accent-green))",
                         paddingLeft: ".8rem",
                     };
                 } else {
@@ -38,7 +38,7 @@ function CodeSyntax({
                     display: "block",
                 };
                 if (highlightedLines?.includes(lineNumber)) {
-                    style.backgroundColor = "rgb(var(--b-primary),.2)";
+                    style.backgroundColor = "rgb(var(--b-accent-green),.15)";
                 }
                 return {
                     style,
@@ -47,7 +47,9 @@ function CodeSyntax({
                         const target = e.target as HTMLElement;
                         // Check if the target element contains the `code-line` class
                         if (target.classList.contains("code-line")) {
-                            target.classList.add("hover:bg-n-secondary");
+                            target.classList.add(
+                                "hover:bg-[rgba(var(--b-accent-green),.1)]",
+                            );
                         }
 
                         // Alternatively, check if the parent element contains the `code-line` class
@@ -55,14 +57,18 @@ function CodeSyntax({
                             ".code-line",
                         ) as HTMLElement;
                         if (parent) {
-                            parent.classList.add("hover:bg-n-secondary");
+                            parent.classList.add(
+                                "hover:bg-[rgba(var(--b-accent-green),.1)]",
+                            );
                         }
                     },
                     onMouseLeave: (e: React.MouseEvent) => {
                         const target = e.target as HTMLElement;
                         // Check if the target element contains the `code-line` class
                         if (target.classList.contains("code-line")) {
-                            target.classList.remove("hover:bg-n-secondary");
+                            target.classList.remove(
+                                "hover:bg-[rgba(var(--b-accent-green),.1)]",
+                            );
                         }
 
                         // Alternatively, check if the parent element contains the `code-line` class
@@ -70,7 +76,9 @@ function CodeSyntax({
                             ".code-line",
                         ) as HTMLElement;
                         if (parent) {
-                            parent.classList.remove("hover:bg-n-secondary");
+                            parent.classList.remove(
+                                "hover:bg-[rgba(var(--b-accent-green),.1)]",
+                            );
                         }
                     },
                 };
@@ -80,7 +88,7 @@ function CodeSyntax({
                 fontSize: "12px",
                 paddingTop: "3.0rem",
                 paddingBottom: ".8rem",
-                backgroundColor: "rgb(var(--foreground))",
+                background: "rgba(var(--b-accent-green-grey),.2)",
             }}
         >
             {codeString}

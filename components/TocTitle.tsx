@@ -31,7 +31,7 @@ function TocTitle({
             },
         },
         hover: {
-            color: "rgb(var(--b-secondary))",
+            color: "rgb(var(--b-tertiary))",
 
             transition: {
                 duration: 0.2,
@@ -44,8 +44,8 @@ function TocTitle({
             borderBottomRightRadius: "0.5rem",
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
-            borderLeft: "2px solid rgb(var(--b-secondary))",
-            color: "rgb(var(--b-secondary))",
+            borderLeft: "2px solid rgb(var(--b-tertiary))",
+            color: "rgb(var(--b-tertiary))",
             fontWeight: "bold",
             transition: {
                 duration: 0.2,

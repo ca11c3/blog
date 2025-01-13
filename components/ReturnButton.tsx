@@ -13,10 +13,11 @@ type Props = {
 const textVariants = {
     initial: {
         opacity: 1,
+        color: "rgb(var(--t-primary))",
     },
     hover: {
         opacity: 0.7,
-        color: "rgb(var(--primary-color))",
+        color: "rgb(var(--t-tertiary))",
     },
 };
 
@@ -40,7 +41,7 @@ const icon2Variants = {
         left: 0,
         opacity: [0, 0.7],
         x: 0,
-        color: "rgb(var(--primary-color))",
+        color: "rgb(var(--t-tertiary))",
         transition: {
             duration: 0.5,
             ease: "easeInOut",
@@ -60,7 +61,7 @@ const ReturnButton = ({ pathnames }: Props) => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <motion.div className="flex items-center">
-                <motion.div className="text-colors-white-100 relative flex w-fit">
+                <motion.div className="text-t-primary relative flex w-fit">
                     <motion.div
                         variants={iconVariants}
                         animate={isHovered ? "hover" : "initial"}

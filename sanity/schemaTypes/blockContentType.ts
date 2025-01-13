@@ -64,6 +64,10 @@ export const blockContentType = defineType({
             title: "Callout",
             fields: [
                 {
+                    name: "title",
+                    type: "string",
+                },
+                {
                     name: "style",
                     title: "Style",
                     type: "string",
@@ -72,6 +76,7 @@ export const blockContentType = defineType({
                             { title: "Info", value: "info" },
                             { title: "Warning", value: "warning" },
                             { title: "Success", value: "success" },
+                            { title: "Command", value: "command" },
                         ],
                     },
                 },
