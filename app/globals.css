@@ -124,6 +124,6 @@
     }
 
     .screen-width-footer {
-        @apply mx-auto max-w-[1575px] px-5 md:px-0;
+        @apply mx-auto max-w-[1575px];
     }
 }

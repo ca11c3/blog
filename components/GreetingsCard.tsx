@@ -55,7 +55,7 @@ function GreetingsCardRight({
     const [isHovered, setIsHovered] = React.useState(false);
     return (
         <motion.div
-            className="relative bg-transparent"
+            className="greetings-card relative bg-transparent"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -136,7 +136,7 @@ function GreetingsCardLeft({
 
     return (
         <motion.div
-            className="relative bg-transparent"
+            className="greetings-card relative bg-transparent"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

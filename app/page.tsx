@@ -7,6 +7,8 @@ import GridScene from "@/components/GridScene";
 import HorizontalCard from "@/components/HorizontalCard";
 import { greetingsStyle, landingStyle } from "@/components/LandingStyle";
 import PrimaryButton from "@/components/PrimaryButton";
+import StaggerObjectSlideIn from "@/components/StaggerObjectSlideIn";
+import TextRotateIn from "@/components/TextRotateIn";
 import VerticalCard from "@/components/VerticalCard";
 import { getLandingBody, getPosts } from "@/sanity/lib/action";
 import { PortableText } from "next-sanity";
@@ -23,48 +25,52 @@ export default async function Home() {
             </div> */}
 
             {/* Quote */}
-            <div className="lg:mx-auto lg:max-w-6xl">
+            <div className="flex h-96 items-center justify-center lg:mx-auto lg:max-w-6xl">
                 <div className="font-paytone-one text-t-primary flex h-full w-full items-center justify-start text-6xl font-black lg:text-8xl">
-                    <h1>
-                        CREATE. <br /> <span> BUILD. DEBUG.</span> <br />{" "}
-                        <span className="text-n-primary">REPEAT.</span>
-                    </h1>
+                    <TextRotateIn textType="word" staggerAmount={0.2}>
+                        <>
+                            CREATE. <br /> <span> BUILD. DEBUG.</span> <br />{" "}
+                            <span className="text-n-primary">REPEAT.</span>
+                        </>
+                    </TextRotateIn>
                 </div>
             </div>
 
             {/* Bento */}
 
-            <div className="w-full pt-20 lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-6 lg:space-x-10">
-                <div className="w-full pt-12 lg:col-span-3">
-                    <GreetingsCardLeft
-                        text={
-                            <div className="text-base font-bold leading-normal">
-                                Greetings
-                            </div>
-                        }
-                    >
-                        <PortableText
-                            value={landingBody[0].greetings}
-                            components={greetingsStyle}
-                        />
-                    </GreetingsCardLeft>
+            <StaggerObjectSlideIn className="greetings-card">
+                <div className="w-full pt-10 lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-6 lg:space-x-10">
+                    <div className="w-full pt-12 lg:col-span-3">
+                        <GreetingsCardLeft
+                            text={
+                                <div className="text-base font-bold leading-normal">
+                                    Greetings
+                                </div>
+                            }
+                        >
+                            <PortableText
+                                value={landingBody[0].greetings}
+                                components={greetingsStyle}
+                            />
+                        </GreetingsCardLeft>
+                    </div>
+                    <div className="w-full pt-12 lg:col-span-3">
+                        <GreetingsCardRight
+                            text={
+                                <div className="text-base font-bold leading-none">
+                                    Why did I <br />
+                                    start this blog ?{" "}
+                                </div>
+                            }
+                        >
+                            <PortableText
+                                value={landingBody[0].body}
+                                components={landingStyle}
+                            />
+                        </GreetingsCardRight>
+                    </div>
                 </div>
-                <div className="w-full pt-12 lg:col-span-3">
-                    <GreetingsCardRight
-                        text={
-                            <div className="text-base font-bold leading-none">
-                                Why did I <br />
-                                start this blog ?{" "}
-                            </div>
-                        }
-                    >
-                        <PortableText
-                            value={landingBody[0].body}
-                            components={landingStyle}
-                        />
-                    </GreetingsCardRight>
-                </div>
-            </div>
+            </StaggerObjectSlideIn>
 
             <div className="mb-12 mt-5 pt-20 lg:mx-auto lg:max-w-6xl">
                 <h1 className="pb-4 text-[1.75rem] font-bold">All Articles</h1>
