@@ -67,3 +67,15 @@ export async function getPost(slug: string) {
         { slug },
     );
 }
+
+export async function getContact() {
+    return client.fetch(
+        groq`*[_type == "contact"]{
+      email,
+      portfolioUrl,
+      githubUrl,
+      instagramUrl,
+      xUrl,
+    }`,
+    );
+}
