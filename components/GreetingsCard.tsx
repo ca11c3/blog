@@ -29,7 +29,7 @@ function GreetingsCardRight({
 
     const tagVariants = {
         initial: {
-            rotate: [0, 0],
+            rotate: 0,
             x: 0,
             scale: 1,
             transition: {
@@ -38,14 +38,14 @@ function GreetingsCardRight({
             },
         },
         hover: {
-            rotate: [10, 0],
-            x: 20,
-            scale: 1.1,
+            rotate: -10,
+            x: -1,
+            scale: 1.05,
             transition: {
-                // type: "spring",
-                repeat: Infinity,
-                repeatDelay: 0.5,
+                type: "spring",
+
                 duration: 1,
+                stiffness: 50,
 
                 ease: [0.39, 0.24, 0.3, 1],
             },
@@ -72,7 +72,7 @@ function GreetingsCardRight({
                 </div>
             </motion.div>
             <motion.div
-                className="text-n-secondary bg-t-primary absolute right-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl p-2 font-semibold"
+                className="absolute right-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl bg-t-primary p-2 font-semibold text-n-secondary"
                 variants={tagVariants}
                 initial="initial"
                 animate={isHovered ? "hover" : "initial"}
@@ -118,14 +118,14 @@ function GreetingsCardLeft({
             },
         },
         hover: {
-            rotate: [-10, 0],
-            x: -20,
-            scale: 1.1,
+            rotate: 10,
+            x: 1,
+            scale: 1.05,
             transition: {
-                // type: "spring",
-                repeat: Infinity,
-                repeatDelay: 0.5,
+                type: "spring",
+
                 duration: 1,
+                stiffness: 50,
 
                 ease: [0.39, 0.24, 0.3, 1],
             },
@@ -154,7 +154,7 @@ function GreetingsCardLeft({
             </motion.div>
 
             <motion.div
-                className="text-n-tertiary bg-t-primary absolute left-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl p-2 font-semibold"
+                className="absolute left-0 top-0 z-10 flex w-44 max-w-48 items-center justify-center text-nowrap rounded-3xl bg-t-primary p-2 font-semibold text-n-tertiary"
                 variants={tagVariants}
                 initial="initial"
                 animate={isHovered ? "hover" : "initial"}

@@ -22,12 +22,8 @@ function CommandCard({
         }
     }, [isCopied]);
     return (
-        <motion.div
-            className="greetings-card relative bg-transparent"
-            // onMouseEnter={() => setIsHovered(true)}
-            // onMouseLeave={() => setIsHovered(false)}
-        >
-            <motion.div className="masked-bg-small-tr masked-bg rounded-xl bg-[rgba(var(--b-accent-grey),.2)] bg-blend-overlay backdrop-blur">
+        <motion.div className="greetings-card relative bg-transparent">
+            <motion.div className="masked-bg-small-tr masked-bg rounded-xl bg-[rgba(var(--b-accent-green-grey),.2)] bg-blend-overlay backdrop-blur">
                 <div className="float-right ml-4 h-16 min-w-36 rounded-br-xl bg-transparent"></div>
 
                 <div className="h-full w-full p-4" id="greetings-content">
@@ -35,7 +31,7 @@ function CommandCard({
                 </div>
             </motion.div>
             <motion.div
-                className="text-b-accent-green absolute -top-1 right-0 z-10 flex min-w-36 max-w-40 items-center justify-center gap-x-2 text-nowrap rounded-lg bg-[rgba(var(--b-accent-grey),.2)] p-2 text-sm font-semibold"
+                className="absolute -top-1 right-0 z-10 flex min-w-36 max-w-36 items-center justify-center gap-x-2 text-nowrap rounded-lg bg-[rgba(var(--b-accent-green-grey),.2)] p-2 text-sm font-semibold text-b-accent-green"
                 onClick={() => {
                     setIsCopied(true);
                     navigator.clipboard.writeText(copiedText);

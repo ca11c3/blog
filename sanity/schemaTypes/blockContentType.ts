@@ -133,6 +133,14 @@ export const blockContentType = defineType({
         // primitive types such as 'string' and 'number' in the same array
         // as a block type.
         defineArrayMember({
+            name: "videoFile",
+            type: "file",
+            title: "Video File",
+            options: {
+                accept: "video/*", // 限制文件类型为视频
+            },
+        }),
+        defineArrayMember({
             type: "image",
             icon: ImageIcon,
             options: { hotspot: true },

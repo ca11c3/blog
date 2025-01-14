@@ -2,7 +2,12 @@
 
 import React, { useContext } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { vs, vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+    vs,
+    vs2015,
+    stackoverflowLight,
+    stackoverflowDark,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { CSSProperties } from "styled-components";
 import { ThemeContext } from "./LayoutWrapper";
@@ -18,7 +23,7 @@ function CodeSyntax({
     return (
         <SyntaxHighlighter
             language="javascript"
-            style={theme === "dark" ? vs2015 : vs}
+            style={theme === "dark" ? stackoverflowDark : stackoverflowLight}
             showLineNumbers
             lineNumberStyle={(lineNumber) => {
                 if (highlightedLines && highlightedLines.includes(lineNumber)) {
@@ -33,16 +38,16 @@ function CodeSyntax({
                 }
             }}
             wrapLines={true}
+            // wrapLongLines={true}
             lineProps={(lineNumber) => {
-                const style: CSSProperties = {
-                    display: "block",
-                };
+                const style: CSSProperties = {};
+
                 if (highlightedLines?.includes(lineNumber)) {
                     style.backgroundColor = "rgb(var(--b-accent-green),.15)";
                 }
                 return {
                     style,
-                    className: "code-line md:w-full w-[200%]",
+                    className: "code-line flex  min-w-full",
                     onMouseEnter: (e: React.MouseEvent) => {
                         const target = e.target as HTMLElement;
                         // Check if the target element contains the `code-line` class
@@ -85,10 +90,13 @@ function CodeSyntax({
             }}
             customStyle={{
                 padding: "0px",
-                fontSize: "12px",
+                fontSize: "14px",
                 paddingTop: "3.0rem",
                 paddingBottom: ".8rem",
-                background: "rgba(var(--b-accent-green-grey),.2)",
+                minWidth: "100%",
+                display: "grid",
+                width: "100%",
+                background: "rgba(var(--b-accent-grey),.2)",
             }}
         >
             {codeString}

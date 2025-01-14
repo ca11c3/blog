@@ -10,12 +10,12 @@ function Footer() {
         <div className="screen-width-footer grid h-32 grid-cols-12 overflow-hidden">
             {/* XHS Posting */}
 
-            <div className="col-span-2 flex items-center gap-x-5 lg:col-span-2">
-                <div className="footer-item bg-t-primary w-fit p-4 py-4 text-center text-base leading-none text-background">
+            <div className="col-span-3 flex items-center gap-x-5 lg:col-span-2">
+                <div className="footer-item w-fit bg-t-primary p-4 py-4 text-center text-base leading-none text-background">
                     FPS
                     <br /> #5
                 </div>
-                <h1 className="footer-item text-t-secondary hidden text-base leading-tight lg:block">
+                <h1 className="footer-item hidden text-base leading-tight text-t-secondary lg:block">
                     Learning is fun
                     <br />
                     while Painful
@@ -23,15 +23,15 @@ function Footer() {
             </div>
 
             {/* Get in touch */}
-            <div className="col-span-10 flex flex-col justify-center lg:col-span-5 lg:gap-x-2">
+            <div className="col-span-9 flex flex-col justify-center lg:col-span-5 lg:gap-x-2">
                 <div className="footer-item hidden lg:block">
-                    <div className="text-t-primary mt-2 hidden text-nowrap text-sm lg:flex">
+                    <div className="mt-2 hidden text-nowrap text-sm text-t-primary lg:flex">
                         Get in touch,
                     </div>
                 </div>
                 <div className="footer-item w-full">
                     <div className="grid grid-rows-2 font-semibold lg:flex lg:gap-x-10">
-                        <div className="row-span-1 flex gap-x-5 lg:gap-x-10">
+                        <div className="row-span-1 flex gap-x-3 lg:gap-x-10">
                             <MotionTextWithIcon
                                 icon={
                                     <ArrowUpRight
@@ -66,7 +66,7 @@ function Footer() {
                             </MotionTextWithIcon>
                         </div>
 
-                        <div className="row-span-1 flex gap-x-5 lg:gap-x-10">
+                        <div className="row-span-1 flex gap-x-3 lg:gap-x-10">
                             <MotionTextWithIcon
                                 icon={
                                     <ArrowUpRight
@@ -96,15 +96,15 @@ function Footer() {
 
             {/* Copyright */}
 
-            <div className="footer-item col-span-12 flex items-center justify-start lg:col-span-5 lg:justify-end lg:pr-10">
-                <div className="text-t-secondary text-start text-xs font-medium leading-none">
+            <div className="footer-item col-span-12 flex items-center justify-start lg:col-span-5 lg:justify-end lg:pr-5">
+                <div className="text-start text-xs font-medium leading-none text-t-secondary">
                     <Copyright
                         strokeWidth={2}
                         size={14}
                         className="mb-1 mr-1 inline-block"
                     />
                     <span className="h-full">
-                        Alice, @chaosatleast 2025. <br /> All rights reserved.
+                        Alice, @chaosatleast 2025. All rights reserved.
                     </span>
                 </div>
             </div>

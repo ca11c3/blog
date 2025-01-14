@@ -1,81 +1,80 @@
 "use client";
 
-import React from "react";
 import { motion } from "motion/react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./LayoutWrapper";
 
 function CalloutCard({
     children,
     text,
+    type = "info",
 }: {
     children: React.ReactNode;
     text: React.ReactNode;
+    type?: "info" | "success" | "warning";
 }) {
     const cardVariants = {
-        initial: {
-            scale: 1,
-            transition: {
-                duration: 0.3,
-                ease: "easeInOut",
-            },
+        ["dark-info"]: {
+            backgroundColor: "rgba(var(--b-info),.3)",
         },
-        hover: {
-            scale: 1.05,
-            transition: {
-                duration: 0.3,
-                ease: "easeInOut",
-            },
+        ["dark-success"]: {
+            backgroundColor: "rgba(var(--b-success),.3)",
         },
-    };
-
-    const tagVariants = {
-        initial: {
-            rotate: [0, 0],
-            x: 0,
-            scale: 1,
-            transition: {
-                duration: 0.3,
-                ease: "easeInOut",
-            },
+        ["dark-warning"]: {
+            backgroundColor: "rgba(var(--b-warning),.3)",
         },
-        hover: {
-            rotate: [10, 0],
-            x: 20,
-            scale: 1.1,
-            transition: {
-                // type: "spring",
-                repeat: Infinity,
-                repeatDelay: 0.5,
-                duration: 1,
-
-                ease: [0.39, 0.24, 0.3, 1],
-            },
+        ["light-info"]: {
+            backgroundColor: "rgba(var(--b-info),1)",
+        },
+        ["light-success"]: {
+            backgroundColor: "rgba(var(--b-success),1)",
+        },
+        ["light-warning"]: {
+            backgroundColor: "rgba(var(--b-warning),1)",
         },
     };
 
-    const [isHovered, setIsHovered] = React.useState(false);
+    const tagInfo = {
+        ["info"]: {
+            backgroundColor: "rgba(var(--b-accent-info),1)",
+        },
+        ["success"]: {
+            backgroundColor: "rgba(var(--b-accent-success),1)",
+        },
+        ["warning"]: {
+            backgroundColor: "rgba(var(--b-accent-warning),1)",
+        },
+    };
+
+    const tContext = useContext(ThemeContext);
+    console.log("tcontext", tContext);
+
+    const getColor = () => {
+        if (tContext?.theme === "dark") {
+            return "dark-" + type;
+        } else {
+            return "light-" + type;
+        }
+    };
     return (
-        <motion.div
-            className="greetings-card relative bg-transparent"
-            // onMouseEnter={() => setIsHovered(true)}
-            // onMouseLeave={() => setIsHovered(false)}
-        >
+        <motion.div className="greetings-card relative bg-transparent">
             <motion.div
-                className="masked-bg-small-tr masked-bg rounded-xl bg-[rgba(var(--b-info),.2)] bg-blend-overlay backdrop-blur"
+                className="masked-bg-small-tr masked-bg rounded-xl"
                 variants={cardVariants}
-                initial="initial"
-                animate={isHovered ? "hover" : "initial"}
+                initial={getColor()}
+                animate={getColor()}
             >
-                <div className="float-right ml-4 h-16 w-40 rounded-br-xl bg-transparent"></div>
+                <div className="float-right mb-4 h-12 w-40 rounded-br-xl bg-transparent"></div>
 
-                <div className="h-full w-full p-4" id="greetings-content">
+                <div className="h-full lg:p-4" id="greetings-content">
                     {children}
                 </div>
             </motion.div>
             <motion.div
-                className="text-t-primary absolute -top-1 right-0 z-10 flex min-w-36 max-w-40 items-center justify-center text-nowrap rounded-lg bg-[rgba(var(--b-info),.2)] p-2 text-sm font-semibold"
-                variants={tagVariants}
-                initial="initial"
-                animate={isHovered ? "hover" : "initial"}
+                className="absolute -top-0 right-1 z-10 flex max-h-10 min-w-36 max-w-36 items-center justify-center text-wrap rounded-lg p-2 text-center text-sm font-semibold leading-tight text-t-primary"
+                variants={tagInfo}
+                initial={type}
+                animate={type}
             >
                 {text}
             </motion.div>

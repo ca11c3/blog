@@ -32,7 +32,7 @@ function PostTitle({ slug, title }: { slug: string; title: string }) {
             borderBottomLeftRadius: 0,
             borderLeft: "2px solid rgb(var(--b-tertiary))",
             color: "rgb(var(--b-tertiary))",
-            fontWidth: "extrabold",
+            fontWeight: "extrabold",
 
             transition: {
                 duration: 0.2,

@@ -31,11 +31,11 @@ function LayoutWrapper({ children }: Props) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
-                    "fixed h-screen w-full bg-background " +
+                    "fixed h-screen w-screen bg-background " +
                     (theme === "dark" ? "dark" : "")
                 }
             >
-                <div className="relative flex h-screen w-full flex-col overflow-y-scroll">
+                <div className="relative flex h-screen flex-col overflow-x-hidden overflow-y-scroll">
                     {/* Header 部分 */}
                     <div className="sticky top-0 z-50 w-full">
                         <Header

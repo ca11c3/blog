@@ -6,23 +6,17 @@ const config: Config = {
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    darkMode: "media",
     theme: {
         extend: {
             colors: {
                 background: "rgb(var(--background))",
                 foreground: "var(--foreground)",
-                // contrast: "var(--text-color)",
-                // primary: "rgb(var(--primary-color))",
-                // secondary: "rgb(var(--secondary-color))",
-                // card: "var(--card-background)",
-                // "primary-text": "rgb(var(--primary-text))",
-                // "secondary-text": "rgb(var(--secondary-text))",
+
                 "n-primary": "rgb(var(--n-primary))",
                 "n-secondary": "rgb(var(--n-secondary))",
-                "n-accent": "rgb(var(--n-accent))",
                 "n-tertiary": "rgb(var(--n-tertiary))",
-                "n-accent-2": "rgb(var(--n-accent-2))",
-                "n-accent-yellow": "rgb(var(--n-accent-yellow))",
+
                 "b-primary": "rgb(var(--b-primary))",
                 "b-secondary": "rgb(var(--b-secondary))",
                 "b-tertiary": "rgb(var(--b-tertiary))",
@@ -37,6 +31,10 @@ const config: Config = {
                 "b-accent-green-grey": "rgb(var(--b-accent-green-grey))",
                 "b-accent-green": "rgb(var(--b-accent-green))",
                 "b-accent-success": "rgb(var(--b-accent-success))",
+                "b-accent-info": "rgb(var(--b-accent-info))",
+                "b-accent-warning": "rgb(var(--b-accent-warning))",
+                "b-accent-blue-grey": "rgb(var(--b-accent-blue-grey))",
+                
             },
             fontFamily: {
                 "paytone-one": "var(--font-paytone-one)",

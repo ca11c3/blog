@@ -3,44 +3,41 @@
 @tailwind utilities;
 
 .dark {
-    /* --foreground: #f4f5f7; */
-    --text-color: #cccccc;
+    /* in Use */
 
     --background: 13, 13, 13;
     --foreground: 64, 63, 62;
 
-    --t-primary: 255, 243, 235;
-    --t-secondary: 217, 217, 217;
-    --t-tertiary: 229, 229, 229;
+    --n-primary: 164, 36, 35;
+    --n-secondary: 17, 55, 58;
+    --n-tertiary: 0, 49, 83;
 
-    --n-primary: 240, 77, 24;
-    --n-secondary: 86, 110, 61;
-    --n-tertiary: 24, 46, 149;
+    --t-primary: 245, 245, 245;
+    --t-secondary: 224, 224, 224;
+    --t-tertiary: 214, 214, 214;
 
-    --b-primary: 14, 56, 125;
-    --b-secondary: 114, 185, 239;
-    --b-tertiary: 232, 135, 30;
-    --b-info: 29, 79, 160;
-    --b-warning: 248, 180, 27;
-    --b-success: 75, 127, 82;
-    --b-accent: 54, 54, 54;
-    --b-accent-grey: 42, 49, 61;
-    --b-accent-green-grey: 43, 49, 63;
+    --b-tertiary: 255, 166, 49;
+    --b-info: 26, 43, 77;
+    --b-warning: 61, 42, 26;
+    --b-success: 26, 61, 45;
     --b-accent-green: 127, 239, 189;
-    --b-accent-success: 125, 209, 129;
+
+    --b-accent-grey: 84, 88, 102;
+    --b-accent-green-grey: 43, 49, 63;
+    --b-accent-blue-grey: 28, 32, 37;
+
+    --b-accent-info: 58, 134, 255;
+    --b-accent-success: 76, 175, 80;
+    --b-accent-warning: 255, 167, 38;
+
+    /* Not-in use */
+    --b-primary: 14, 56, 125;
+    --b-accent: 54, 54, 54;
+    --b-secondary: 90, 161, 218;
 }
 
 :root {
-    /* --foreground: #f4f5f7; */
-    --primary-text: 18, 18, 18;
-    --secondary-text: 38, 38, 38;
-    --primary-color: 230, 242, 133;
-    --secondary-color: 0, 122, 255;
-    --card-background: #e4eaf2;
-    --info: #007aff;
-    --success: #4cd964;
-    --warning: #ffcc00;
-
+    /* in Use */
     --background: 244, 245, 247;
     --foreground: 228, 228, 228;
 
@@ -52,20 +49,25 @@
     --t-secondary: 51, 51, 51;
     --t-tertiary: 64, 63, 62;
 
+    --b-tertiary: 255, 128, 10;
+    --b-info: 208, 231, 255;
+    --b-warning: 255, 241, 194;
+    --b-success: 214, 247, 232;
+
+    --b-accent-green: 29, 78, 216;
+
+    --b-accent-grey: 202, 204, 208;
+    --b-accent-green-grey: 192, 194, 199;
+    --b-accent-blue-grey: 213, 214, 217;
+
+    --b-accent-info: 58, 134, 255;
+    --b-accent-success: 52, 211, 153;
+    --b-accent-warning: 245, 158, 11;
+
     /* Not-in use */
     --b-primary: 14, 56, 125;
     --b-accent: 54, 54, 54;
-
-    /* in Use */
-    --b-secondary: 30, 150, 252;
-    --b-tertiary: 230, 105, 37;
-    --b-info: 162, 214, 249;
-    --b-warning: 255, 228, 94;
-    --b-success: 107, 212, 37;
-    --b-accent-grey: 203, 204, 203;
-    --b-accent-green-grey: 236, 235, 228;
-    --b-accent-green: 1, 190, 254;
-    --b-accent-success: 14, 143, 0;
+    --b-secondary: 229, 229, 229;
 }
 
 .radius {

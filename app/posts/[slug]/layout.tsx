@@ -15,7 +15,7 @@ export default function RootLayout({
     return (
         <div className="relative mx-auto flex w-full max-w-[1575px] flex-col lg:flex-row">
             {/* Sidebar */}
-            <div className="sticky top-32 hidden h-fit w-full lg:block lg:w-96">
+            <div className="sticky top-32 hidden h-fit w-fit lg:block lg:w-96">
                 <div className="max-h-[calc(100%_-_190px)] overflow-y-auto">
                     {sidebar}
                 </div>
