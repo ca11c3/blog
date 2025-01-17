@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 function Footer() {
     return (
-        <div className="sticky bottom-0 h-fit w-screen overflow-hidden bg-background py-4">
+        <div className="h-fit w-screen bg-background py-4">
             <div className="screen-width-footer grid grid-cols-12 space-y-0">
                 {/* XHS Posting */}
                 <motion.div className="col-span-3 flex items-center gap-x-5 md:col-span-3">

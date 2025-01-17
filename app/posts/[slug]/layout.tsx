@@ -13,15 +13,13 @@ export default function RootLayout({
     sidebar: React.ReactNode;
 }>) {
     return (
-        <div className="relative mx-auto flex w-full max-w-[1575px] flex-col lg:flex-row">
+        <div className="relative mx-auto flex w-full max-w-screen-2xl lg:gap-x-4">
             {/* Sidebar */}
-            <div className="sticky top-32 hidden h-fit w-fit lg:block lg:w-96">
-                <div className="max-h-[calc(100%_-_190px)] overflow-y-auto">
-                    {sidebar}
-                </div>
-            </div>
 
             {/* Main Content */}
+            <div className="sticky top-32 hidden h-full max-h-screen w-96 overflow-y-scroll lg:block">
+                {sidebar}
+            </div>
             <div className="w-full">{children}</div>
         </div>
     );

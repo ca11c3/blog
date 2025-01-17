@@ -107,12 +107,12 @@ function Scene() {
             mouseLerped.current.x = THREE.MathUtils.lerp(
                 mouseLerped.current.x,
                 x,
-                0.1, // smoothing factor
+                0.05, // smoothing factor
             );
             mouseLerped.current.y = THREE.MathUtils.lerp(
                 mouseLerped.current.y,
                 y,
-                0.1,
+                0.05,
             );
 
             // Update uniform directly in [-1..1]

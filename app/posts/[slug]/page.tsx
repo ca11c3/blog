@@ -36,15 +36,15 @@ async function page({ params: { slug } }: Props) {
     });
 
     return (
-        <div className="relative flex h-full w-full gap-x-12 px-5 text-t-secondary lg:px-0">
-            <div className="blog-post mx-auto w-full scroll-smooth pt-7 lg:max-w-3xl lg:pr-5 xl:max-w-4xl xl:pr-0">
+        <div className="flex min-h-screen w-full gap-x-12 px-5 text-t-secondary lg:px-0">
+            <div className="blog-post mx-auto mt-32 w-full overscroll-y-auto scroll-smooth lg:max-w-3xl lg:pr-5 xl:max-w-4xl xl:pr-0">
                 <div className="-mt-1 mb-4">
                     <ReturnButton pathnames={"/"} />
                 </div>
                 <h1 className="text-primary-text mb-2 text-3xl font-bold">
                     {post[0].title}
                 </h1>
-                <h2 className="my-4 text-base  text-t-tertiary">
+                <h2 className="my-4 text-base text-t-tertiary">
                     {post[0].description}
                 </h2>
 
@@ -56,7 +56,7 @@ async function page({ params: { slug } }: Props) {
                 </div>
             </div>
 
-            <div className="sticky top-32 hidden h-fit w-fit pr-5 xl:block">
+            <div className="sticky top-32 hidden h-fit max-h-[calc(100vh_-_190px)] w-fit pr-5 xl:block">
                 <div className="text-primary-text mb-2 text-sm font-semibold">
                     On this page
                 </div>

@@ -10,19 +10,13 @@ import VerticalCard from "@/components/VerticalCard";
 import { getLandingBody, getPosts } from "@/sanity/lib/action";
 import { PortableText } from "next-sanity";
 
-import dynamic from "next/dynamic";
-
-export const GridScene = dynamic(() => import("@/components/R3F/GridScene"), {
-    ssr: false,
-});
-
 export default async function Home() {
     const landingBody = await getLandingBody();
 
     const posts = await getPosts();
 
     return (
-        <div className="h-full w-full">
+        <div className="mt-32 h-full w-full">
             <div className="screen-width text-t-tertiary">
                 {/* Quote */}
                 <div className="flex h-[45vh] items-center justify-center lg:mx-auto lg:max-w-6xl">
