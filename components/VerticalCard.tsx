@@ -44,7 +44,6 @@ const tagVariants = {
 };
 function VerticalCard({ post }: { post: IPost }) {
     const router = useRouter();
-    console.log("Post", post);
 
     const [isHovered, setIsHovered] = React.useState(false);
 
@@ -71,7 +70,7 @@ function VerticalCard({ post }: { post: IPost }) {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="relative min-h-64 w-full">
+            <div className="relative z-10 min-h-64 w-full">
                 <motion.div
                     className="masked-bg masked-bg-br min-h-64 rounded-2xl"
                     variants={cardVariants}
@@ -99,10 +98,10 @@ function VerticalCard({ post }: { post: IPost }) {
                 </motion.div>
             </div>
             <div className="relative p-4">
-                <h2 className="text-xl font-bold text-t-primary">
+                <h2 className="text-xl font-bold text-t-primary 2xl:text-4xl">
                     {post.title}
                 </h2>
-                <p className="mt-2 text-sm text-t-tertiary">
+                <p className="mt-2 text-sm text-t-tertiary 2xl:text-3xl">
                     {post.description}
                 </p>
             </div>

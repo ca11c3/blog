@@ -1,8 +1,9 @@
 "use client";
-import React, { createContext, useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import { usePathname } from "next/navigation";
+import React, { createContext, useState } from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+import Image from "next/image";
 
 type Props = {
     children: React.ReactNode;
@@ -19,7 +20,7 @@ export const ThemeContext = createContext<{
 const imgDomain = process.env.NEXT_PUBLIC_IMAGE_DOMAIN;
 
 function LayoutWrapper({ children }: Props) {
-    const [theme, setTheme] = useState("dark" as "dark" | "light");
+    const [theme, setTheme] = useState("light" as "dark" | "light");
 
     const pathname = usePathname();
 
@@ -31,11 +32,24 @@ function LayoutWrapper({ children }: Props) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
-                    "fixed h-screen w-screen bg-background " +
+                    "fixed z-0 h-screen w-screen bg-background " +
                     (theme === "dark" ? "dark" : "")
                 }
             >
-                <div className="relative flex h-screen flex-col overflow-x-hidden overflow-y-scroll">
+                {pathname === "/" && (
+                    <>
+                        {" "}
+                        <div className="absolute left-0 top-0 h-full w-screen">
+                            <Image
+                                src={"/bludge-grid.svg"}
+                                alt="Grid"
+                                fill
+                                className="h-full w-full scale-125 object-cover"
+                            />
+                        </div>
+                    </>
+                )}
+                <div className="relative z-0 flex h-screen flex-col justify-evenly overflow-x-hidden overflow-y-scroll">
                     {/* Header 部分 */}
                     <div className="sticky top-0 z-50 w-full">
                         <Header
@@ -46,12 +60,10 @@ function LayoutWrapper({ children }: Props) {
                             }
                         />
                     </div>
-
                     {/* 动态内容部分 */}
-                    <div className="relative w-full lg:px-0">{children}</div>
+                    <div>
+                        {children}
 
-                    {/* Footer 部分 */}
-                    <div className="relative w-full">
                         <Footer />
                     </div>
                 </div>

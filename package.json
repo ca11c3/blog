@@ -20,6 +20,8 @@
         "framer-motion-3d": "^11.14.4",
         "gl-noise": "^1.6.1",
         "highlight.js": "^11.11.1",
+        "html2canvas": "^1.4.1",
+        "loadash": "^1.0.0",
         "lucide-react": "^0.468.0",
         "motion": "^11.14.4",
         "next": "14.2.20",

@@ -121,17 +121,21 @@
     }
 }
 
+.bludge-grid canvas {
+    display: none;
+}
+
 @layer components {
     .social-link-text {
-        @apply text-sm;
+        @apply text-sm 2xl:text-2xl;
     }
 
     .social-link-arrow-icon {
-        @apply inline h-[1.5rem] w-[1.2rem];
+        @apply inline h-[1.5rem] w-[1.2rem] 2xl:h-[2.5rem] 2xl:w-[2.5rem];
     }
 
     .screen-width {
-        @apply mx-auto h-full w-full max-w-[1575px] px-5 md:px-12 lg:px-16;
+        @apply mx-auto h-full w-full max-w-screen-2xl px-5 md:px-12 lg:px-16;
     }
 
     .content-width {
