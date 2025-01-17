@@ -97,8 +97,6 @@ function GridPlane() {
                     onPointerEnter={() => {}}
                     onPointerLeave={() => {}}
                 >
-                    {/* 平面几何 */}
-
                     {uniforms.current.u_Texture.value && (
                         <>
                             <planeGeometry

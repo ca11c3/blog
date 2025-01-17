@@ -3,6 +3,7 @@ export const fragmentChunk1 = /* glsl */ `
     
     varying vec2 v_Uv;
     uniform vec2 u_Resolution;
+    uniform sampler2D u_Texture;
 
     float circle(vec2 uv, vec2 position, float radius) {
      
@@ -27,7 +28,7 @@ export const fragmentChunk2 = /* glsl */ `
     #include <opaque_fragment>
 
    
- 
-    gl_FragColor = vec4(outgoingLight , diffuseColor.a); 
+    vec3 color = texture2D(u_Texture, v_Uv).rgb;
+    gl_FragColor = vec4(color * vec3(1.,1.,1.), diffuseColor.a); 
   
 `;

@@ -4,6 +4,7 @@ import React, { createContext, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Image from "next/image";
+import BulgeGrid from "./R3F/BulgeGrid";
 
 type Props = {
     children: React.ReactNode;
@@ -32,39 +33,42 @@ function LayoutWrapper({ children }: Props) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
-                    "fixed z-0 h-screen w-screen bg-background " +
+                    "relative h-full w-full touch-auto overflow-auto bg-background" +
                     (theme === "dark" ? "dark" : "")
                 }
             >
-                {pathname === "/" && (
-                    <>
-                        {" "}
-                        <div className="absolute left-0 top-0 h-full w-screen">
-                            <Image
-                                src={"/bludge-grid.svg"}
-                                alt="Grid"
-                                fill
-                                className="h-full w-full scale-125 object-cover"
-                            />
+                <div className="">
+                    {pathname === "/" && (
+                        <div className="fixed left-0 top-0 h-full w-screen">
+                            <div className="h-full w-full">
+                                <BulgeGrid />
+                            </div>
                         </div>
-                    </>
-                )}
-                <div className="relative z-0 flex h-screen flex-col justify-evenly overflow-x-hidden overflow-y-scroll">
-                    {/* Header 部分 */}
-                    <div className="sticky top-0 z-50 w-full">
-                        <Header
-                            imageUrl={
-                                theme === "dark"
-                                    ? imgDomain + "ChaosAtleast_white.png"
-                                    : imgDomain + "ChaosAtleast_black.png"
-                            }
-                        />
-                    </div>
-                    {/* 动态内容部分 */}
-                    <div>
-                        {children}
+                    )}
 
-                        <Footer />
+                    {/* Header  */}
+                    <div className="min-h-screen select-none overflow-y-auto">
+                        <div className="h-full flex-col justify-evenly">
+                            <div className="sticky top-0 z-50 w-full">
+                                <Header
+                                    imageUrl={
+                                        theme === "dark"
+                                            ? imgDomain +
+                                              "ChaosAtleast_white.png"
+                                            : imgDomain +
+                                              "ChaosAtleast_black.png"
+                                    }
+                                />
+                            </div>
+
+                            {/* Body */}
+
+                            <div>
+                                {children}
+
+                                <Footer />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

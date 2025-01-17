@@ -2,13 +2,14 @@
 
 import { ArrowUpRight, Copyright } from "lucide-react";
 import MotionTextWithIcon from "./MotionTextWithIcon";
+import { motion } from "framer-motion";
 
 function Footer() {
     return (
-        <div className="h-fit w-screen overflow-hidden bg-background py-4">
+        <div className="sticky bottom-0 h-fit w-screen overflow-hidden bg-background py-4">
             <div className="screen-width-footer grid grid-cols-12 space-y-0">
                 {/* XHS Posting */}
-                <div className="col-span-3 flex items-center gap-x-5 md:col-span-3">
+                <motion.div className="col-span-3 flex items-center gap-x-5 md:col-span-3">
                     <div className="footer-item w-fit bg-t-primary p-4 py-4 text-center text-base leading-none text-background 2xl:text-2xl">
                         FPS
                         <br /> #5
@@ -18,10 +19,10 @@ function Footer() {
                         <br />
                         while Painful
                     </h1>
-                </div>
+                </motion.div>
 
                 {/* Get in touch */}
-                <div className="col-span-9 flex flex-col items-start justify-center md:col-span-5 md:gap-x-2">
+                <motion.div className="col-span-9 flex flex-col items-start justify-center md:col-span-5 md:gap-x-2">
                     <div className="footer-item hidden lg:block">
                         <div className="mt-2 hidden text-nowrap text-sm text-t-primary lg:flex 2xl:text-xl">
                             Get in touch,
@@ -94,11 +95,11 @@ function Footer() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Copyright */}
 
-                <div className="footer-item col-span-12 flex h-full items-center justify-center md:col-span-4 md:justify-end md:pr-5 lg:pt-0">
+                <motion.div className="footer-item col-span-12 flex h-full items-center justify-center md:col-span-4 md:justify-end md:pr-5 lg:pt-0">
                     <div className="flex-wrap text-start text-xs font-medium leading-none text-t-secondary">
                         <Copyright
                             strokeWidth={2}
@@ -111,7 +112,7 @@ function Footer() {
                             All rights reserved.
                         </span>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

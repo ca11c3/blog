@@ -26,7 +26,7 @@ export default async function Home() {
             <div className="screen-width text-t-tertiary">
                 {/* Quote */}
                 <div className="flex h-[45vh] items-center justify-center lg:mx-auto lg:max-w-6xl">
-                    <div className="flex h-full w-full items-center justify-start font-paytone-one text-6xl font-black text-t-primary lg:text-8xl 2xl:text-9xl">
+                    <div className="pointer-events-none z-20 flex h-full w-full items-center justify-start font-paytone-one text-6xl font-black text-t-primary lg:text-8xl 2xl:text-9xl">
                         <TextRotateIn textType="word" staggerAmount={0.2}>
                             <>
                                 CREATE. <br /> <span> BUILD. DEBUG.</span>{" "}

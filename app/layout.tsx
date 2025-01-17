@@ -35,6 +35,9 @@ export default function RootLayout({
         <html lang="en" className="">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${paytone_one.variable} antialiased`}
+                style={{
+                    overscrollBehavior: "none",
+                }}
             >
                 <LayoutWrapper>{children}</LayoutWrapper>
             </body>
