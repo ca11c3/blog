@@ -10,7 +10,7 @@ type Props = {
 function PrimaryButton({ children, onClick }: Props) {
     return (
         <button
-            className="rounded-md border border-solid border-contrast bg-background px-2 py-1"
+            className="h-ful w-full rounded-lg bg-background px-3 py-2 hover:bg-[rgba(var(--t-tertiary),0.1)]"
             onClick={onClick}
         >
             {children}

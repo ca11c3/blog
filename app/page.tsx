@@ -1,61 +1,82 @@
-import GridScene from "@/components/GridScene";
-import LandingQuote from "@/components/GridScene";
-import HorizontalCard from "@/components/HorizontalCard";
-import PrimaryButton from "@/components/PrimaryButton";
+import {
+    GreetingsCardLeft,
+    GreetingsCardRight,
+} from "@/components/GreetingsCard";
 
+import { greetingsStyle, landingStyle } from "@/components/LandingStyle";
+import StaggerObjectSlideIn from "@/components/StaggerObjectSlideIn";
+import TextRotateIn from "@/components/TextRotateIn";
 import VerticalCard from "@/components/VerticalCard";
-import { getLandingBody } from "@/sanity/lib/action";
+import { getLandingBody, getPosts } from "@/sanity/lib/action";
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 
 export default async function Home() {
     const landingBody = await getLandingBody();
 
-    console.log(landingBody[0].body);
+    const posts = await getPosts();
 
-    
     return (
-        <div className="screen-width text-contrast">
-            <div className="relative h-[15rem] w-full md:h-[25rem]">
-                <div className="absolute z-10 flex h-full w-full items-center justify-center text-center text-5xl font-black text-secondary md:text-5xl lg:text-7xl">
-                    <h1>
-                        CREATE. <br /> <span> BUILD. DEBUG.</span> <br />{" "}
-                        REPEAT.
-                    </h1>
-                </div>
-                <div className="absolute left-0 top-0 z-0 h-full w-full">
-                    <GridScene />
-                </div>
-            </div>
-
-            <div className="content-width">
-                <div className="mt-16 text-lg font-medium">
-                    <PortableText value={landingBody[0].body} />
-                </div>
-
-                <div>
-                    <h1 className="mt-16 text-[1.75rem] font-bold">
-                        Latest Article
-                    </h1>
-                    {/* Latest Article Cards */}
-                    <div>
-                        <HorizontalCard />
+        <div className="mt-32 h-full w-full">
+            <div className="screen-width text-t-tertiary">
+                {/* Quote */}
+                <div className="flex h-[45vh] items-center justify-center lg:mx-auto lg:max-w-6xl">
+                    <div className="pointer-events-none relative flex h-full w-full items-center justify-start font-paytone-one text-6xl font-black text-t-primary lg:text-8xl 2xl:text-9xl">
+                        <TextRotateIn textType="word" staggerAmount={0.2}>
+                            <>
+                                CREATE. <br /> <span> BUILD. DEBUG.</span>{" "}
+                                <br />{" "}
+                                <span className="text-n-primary">REPEAT.</span>
+                            </>
+                        </TextRotateIn>
                     </div>
                 </div>
 
-                <div className="mb-24">
-                    <h1 className="text-[1.75rem] font-bold">All Articles</h1>
-                    {/* tags  */}
-                    <div className="mt-2 flex h-full w-full flex-col space-y-8">
-                        <div>
-                            <PrimaryButton>
-                                <div className="px-4">All</div>
-                            </PrimaryButton>
-                        </div>
+                {/* Bento */}
 
-                        {/* Cards */}
-                        <div>
-                            <VerticalCard />
+                <StaggerObjectSlideIn className="greetings-card">
+                    <div className="w-full pt-10 lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-6 lg:space-x-10">
+                        <div className="w-full pt-12 lg:col-span-3">
+                            <GreetingsCardLeft
+                                text={
+                                    <div className="text-base font-bold leading-normal 2xl:text-lg 2xl:leading-none">
+                                        Greetings
+                                    </div>
+                                }
+                            >
+                                <PortableText
+                                    value={landingBody[0].greetings}
+                                    components={greetingsStyle}
+                                />
+                            </GreetingsCardLeft>
+                        </div>
+                        <div className="w-full pt-12 lg:col-span-3">
+                            <GreetingsCardRight
+                                text={
+                                    <div className="text-sm font-bold leading-none 2xl:text-lg 2xl:leading-none">
+                                        Why did I <br />
+                                        start this blog ?{" "}
+                                    </div>
+                                }
+                            >
+                                <PortableText
+                                    value={landingBody[0].body}
+                                    components={landingStyle}
+                                />
+                            </GreetingsCardRight>
+                        </div>
+                    </div>
+                </StaggerObjectSlideIn>
+
+                <div className="pb-12 pt-20 lg:mx-auto lg:max-w-6xl">
+                    <h1 className="pointer-events-none relative pb-4 text-[1.75rem] font-bold text-t-primary 2xl:text-4xl">
+                        All Articles
+                    </h1>
+                    {/* tags  */}
+                    <div className="mt-2 flex h-full w-full flex-col space-y-8 pb-24">
+                        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
+                            {posts.map((post: IPost) => (
+                                <VerticalCard key={post._id} post={post} />
+                            ))}
                         </div>
                     </div>
                 </div>

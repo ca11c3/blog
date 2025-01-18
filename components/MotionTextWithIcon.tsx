@@ -5,7 +5,7 @@ import React from "react";
 
 const iconVariants = {
     initial: {
-        opacity: 0,
+        // opacity: 0,
         scale: 0,
         y: 10,
         x: -10,
@@ -14,7 +14,8 @@ const iconVariants = {
         x: 1,
         y: 1,
         scale: 1,
-        opacity: 0.5,
+        // opacity: 0.5,
+        color: "rgb(var(--n-primary))",
         transition: {
             duration: 0.5,
             delay: 0.1,
@@ -29,9 +30,19 @@ const icon2Variants = {
         display: "block",
     },
     hover: {
-        opacity: 0,
+        // opacity: 0,
+        color: "rgb(var(--n-primary))",
         scale: 0,
         display: "none",
+    },
+};
+
+const textVariants = {
+    initial: {
+        opacity: 1,
+    },
+    hover: {
+        color: "rgb(var(--n-primary))",
     },
 };
 
@@ -45,18 +56,19 @@ const MotionTextWithIcon: React.FC<Props> = ({ children, icon }) => {
 
     return (
         <motion.div
-            className="relative flex h-fit w-fit flex-row items-center text-contrast"
+            className="relative flex h-fit w-fit flex-row items-center justify-start py-1 pr-2 text-t-tertiary"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <motion.div
-                initial={{ opacity: 1 }}
-                animate={{ opacity: isHovered ? 0.5 : 1 }}
+                initial="initial"
+                animate={isHovered ? "hover" : "initial"}
+                variants={textVariants}
             >
                 {children}
             </motion.div>
 
-            <div className="absolute -right-6 top-0">
+            <div className="absolute -right-3 top-0 2xl:-right-7">
                 <motion.div
                     className="absolute right-0 top-0"
                     initial="initial"

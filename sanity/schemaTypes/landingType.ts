@@ -21,7 +21,11 @@ export const landingType = defineType({
             options: { hotspot: true },
             fields: [{ name: "alt", title: "Alt", type: "string" }],
         }),
-
+        defineField({
+            title: "Greetings",
+            name: "greetings",
+            type: "blockContent",
+        }),
         defineField({
             title: "Landing Content",
             name: "body",

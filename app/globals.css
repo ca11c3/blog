@@ -3,21 +3,116 @@
 @tailwind utilities;
 
 .dark {
-    --background: #0d0d0d;
-    --foreground: #f4f5f7;
-    --text-color: #f2f1f0;
-    --primary-color: #97b9ff;
-    --secondary-color: #e6f285;
-    --card-background: #262626;
+    /* in Use */
+
+    --background: 13, 13, 13;
+    --foreground: 64, 63, 62;
+
+    --n-primary: 164, 36, 35;
+    --n-secondary: 17, 55, 58;
+    --n-tertiary: 0, 49, 83;
+
+    --t-primary: 245, 245, 245;
+    --t-secondary: 224, 224, 224;
+    --t-tertiary: 214, 214, 214;
+
+    --b-tertiary: 255, 166, 49;
+    --b-info: 26, 43, 77;
+    --b-warning: 61, 42, 26;
+    --b-success: 26, 61, 45;
+    --b-accent-green: 127, 239, 189;
+
+    --b-accent-grey: 84, 88, 102;
+    --b-accent-green-grey: 43, 49, 63;
+    --b-accent-blue-grey: 28, 32, 37;
+
+    --b-accent-info: 58, 134, 255;
+    --b-accent-success: 76, 175, 80;
+    --b-accent-warning: 255, 167, 38;
+
+    /* Not-in use */
+    --b-primary: 14, 56, 125;
+    --b-accent: 54, 54, 54;
+    --b-secondary: 90, 161, 218;
 }
 
 :root {
-    --background: #f2f1f0;
-    --foreground: #f4f5f7;
-    --text-color: #0d0d0d;
-    --primary-color: #e6f285;
-    --secondary-color: #007aff;
-    --card-background: #e4eaf2;
+    /* in Use */
+    --background: 244, 245, 247;
+    --foreground: 228, 228, 228;
+
+    --n-primary: 228, 67, 48;
+    --n-secondary: 126, 179, 86;
+    --n-tertiary: 90, 161, 218;
+
+    --t-primary: 38, 38, 38;
+    --t-secondary: 51, 51, 51;
+    --t-tertiary: 64, 63, 62;
+
+    --b-tertiary: 255, 128, 10;
+    --b-info: 208, 231, 255;
+    --b-warning: 255, 241, 194;
+    --b-success: 214, 247, 232;
+
+    --b-accent-green: 29, 78, 216;
+
+    --b-accent-grey: 202, 204, 208;
+    --b-accent-green-grey: 192, 194, 199;
+    --b-accent-blue-grey: 213, 214, 217;
+
+    --b-accent-info: 58, 134, 255;
+    --b-accent-success: 52, 211, 153;
+    --b-accent-warning: 245, 158, 11;
+
+    /* Not-in use */
+    --b-primary: 14, 56, 125;
+    --b-accent: 54, 54, 54;
+    --b-secondary: 229, 229, 229;
+}
+
+.radius {
+    &::after {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #4cd964;
+        box-shadow: 100px 100px 100px 100px rgba(0, 0, 0, 1);
+    }
+}
+
+.masked-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    /* background-color: blue; */
+}
+
+.masked-bg-tl {
+    mask-position: top left;
+    mask-image: url("/card-path-tl.svg");
+    -webkit-mask-image: url("/card-path-tl.svg");
+}
+
+.masked-bg-br {
+    mask-position: bottom right;
+    mask-image: url("/card-path-br.svg");
+    -webkit-mask-image: url("/card-path-br.svg");
+}
+
+.masked-bg-tr {
+    mask-position: top right;
+    mask-image: url("/card-path-tr.svg");
+    -webkit-mask-image: url("/card-path-tr.svg");
+}
+
+.masked-bg-small-tr {
+    mask-position: top right;
+    mask-image: url("/small-full-corner.svg");
+    -webkit-mask-image: url("/small-full-corner.svg");
 }
 
 @layer utilities {
@@ -26,24 +121,36 @@
     }
 }
 
+.bludge-grid canvas {
+    display: none;
+}
+
 @layer components {
     .social-link-text {
-        @apply font-mono text-base font-semibold;
+        @apply text-sm 2xl:text-2xl;
     }
 
     .social-link-arrow-icon {
-        @apply -mb-0.5 -ml-1 inline h-[1.5rem] w-[1.5rem];
+        @apply inline h-[1.5rem] w-[1.2rem] 2xl:h-[2.5rem] 2xl:w-[2.5rem];
     }
 
     .screen-width {
-        @apply px-5 md:max-w-5xl md:px-12 lg:mx-auto;
+        @apply mx-auto h-full w-full max-w-screen-2xl px-5 md:px-12 lg:px-16;
     }
 
     .content-width {
-        @apply mx-auto px-5 md:max-w-2xl lg:max-w-4xl;
+        @apply px-5 md:max-w-2xl lg:max-w-4xl;
     }
 
     .screen-width-header {
-        @apply mx-auto max-w-5xl;
+        @apply mx-auto max-w-[1575px] px-5 md:px-12;
+    }
+
+    .post-content-width {
+        @apply mx-auto px-5 md:max-w-2xl lg:max-w-4xl;
+    }
+
+    .screen-width-footer {
+        @apply mx-auto max-w-[1575px];
     }
 }
