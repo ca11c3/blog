@@ -149,14 +149,16 @@ function Scene() {
                     className="absolute left-0 top-0 h-screen w-screen"
                     style={{
                         backgroundColor: "#f4f5f7",
+                        backgroundImage: 'url("/bulge-grid.svg")',
+                        backgroundSize: "100% 100%",
                     }}
                 >
-                    <Image
+                    {/* <Image
                         src={"/bulge-grid.svg"}
                         alt="Grid"
                         fill
                         className="h-full w-full scale-110 object-cover"
-                    />
+                    /> */}
                 </div>
             </Html>
             <pointLight
@@ -167,7 +169,7 @@ function Scene() {
             />
             <mesh>
                 <planeGeometry
-                    args={[viewport.width, viewport.height, 254, 254]}
+                    args={[viewport.width, viewport.width, 254, 254]}
                 />
                 <meshStandardMaterial {...materialFill} flatShading />
             </mesh>

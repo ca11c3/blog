@@ -114,8 +114,9 @@ function Scene() {
     }, []);
 
     const materialFill = new THREE.MeshStandardMaterial({
-        transparent: true,
         // map: texture,
+        // color: "#ff0000",
+        transparent: true,
     });
 
     materialFill.onBeforeCompile = (shader) => {
@@ -151,14 +152,16 @@ function Scene() {
                     className="relative h-screen w-screen"
                     style={{
                         backgroundColor: "#0d0d0d",
+                        backgroundImage: 'url("/bulge-grid-night.svg")',
+                        backgroundSize: "100% 100%",
                     }}
                 >
-                    <Image
+                    {/* <Image
                         src={"/bulge-grid-night.svg"}
                         alt="Grid"
                         fill
                         className="object-cover"
-                    />
+                    /> */}
                 </div>
             </Html>
             <pointLight
@@ -169,7 +172,7 @@ function Scene() {
             />
             <mesh>
                 <planeGeometry
-                    args={[viewport.width, viewport.height, 254, 254]}
+                    args={[viewport.width, viewport.width, 254, 254]}
                 />
                 <meshStandardMaterial {...materialFill} flatShading />
             </mesh>

@@ -5,8 +5,8 @@ export const vertexChunk1 = /* glsl */ `
 
     float circle(vec2 uv, vec2 position, float radius, vec2 resolution) {
         float aspect = resolution.x / resolution.y;
-        vec2 scaledUV = vec2(uv.x * aspect, uv.y);
-        vec2 scaledCenter = vec2(position.x * aspect, position.y);
+        vec2 scaledUV = vec2(uv.x , uv.y);
+        vec2 scaledCenter = vec2(position.x , position.y);
         vec2 l = scaledUV - scaledCenter;
         float dist = length(l); // Euclidean distance
 
@@ -20,7 +20,7 @@ export const vertexChunk2 = /* glsl */ `
     vec3 pos = transformed;
     v_Uv = uv;
 
-    float circleShape = circle(uv, (u_Mouse * 0.5) + 0.5, 0.25, u_Resolution);
+    float circleShape = circle(uv, (u_Mouse * 0.5) + 0.5, 0.15, u_Resolution);
     float intensity = 0.8;
     pos.z += circleShape * intensity;
 
