@@ -9,6 +9,7 @@ const iconVariants = {
         scale: 0,
         y: 10,
         x: -10,
+        color: "rgb(var(--t-tertiary))",
     },
     hover: {
         x: 1,
@@ -28,6 +29,7 @@ const icon2Variants = {
         opacity: 1,
         scale: 1,
         display: "block",
+        color: "rgb(var(--t-tertiary))",
     },
     hover: {
         // opacity: 0,
@@ -40,6 +42,7 @@ const icon2Variants = {
 const textVariants = {
     initial: {
         opacity: 1,
+        color: "rgb(var(--t-tertiary))",
     },
     hover: {
         color: "rgb(var(--n-primary))",
