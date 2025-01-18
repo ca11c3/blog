@@ -7,12 +7,15 @@ import { useContext } from "react";
 import { ThemeContext } from "./LayoutWrapper";
 import { useRouter } from "next/navigation";
 import Grid from "./P5GridTexture";
-import GridHeader from "./GridHeader";
+import dynamic from "next/dynamic";
+
 // import PrimaryButton from "./PrimaryButton";
 
 type Props = {
     imageUrl: string;
 };
+
+const GridHeader = dynamic(() => import("./GridHeader"), { ssr: false });
 
 function Header({ imageUrl }: Props) {
     const themeContext = useContext(ThemeContext);
@@ -20,7 +23,7 @@ function Header({ imageUrl }: Props) {
     return (
         <div className="flex h-24 w-full items-center justify-center bg-[rgba(var(--background),0.5)] backdrop-blur-lg">
             <div className="absolute left-0 top-0 z-0 h-full w-full bg-blend-overlay">
-                <GridHeader></GridHeader>
+                <GridHeader />
             </div>
             <div className="absolute left-0 top-0 z-[1] h-full w-full bg-gradient-to-t from-[rgb(var(--background))] to-transparent to-50%"></div>
             <div className="screen-width-header relative z-10 flex h-full w-full items-center justify-between">
