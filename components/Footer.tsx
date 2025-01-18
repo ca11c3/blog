@@ -3,8 +3,23 @@
 import { ArrowUpRight, Copyright } from "lucide-react";
 import MotionTextWithIcon from "./MotionTextWithIcon";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getContact } from "@/sanity/lib/action";
 
 function Footer() {
+    const [contacts, setContacts] = useState<IContact | null>(null);
+    useEffect(() => {
+        const fetchContacts = async () => {
+            const response = await getContact();
+            console.log("Response", response);
+
+            if (response[0]) {
+                setContacts(response[0]);
+            }
+        };
+
+        fetchContacts();
+    }, []);
     return (
         <div className="h-fit w-screen bg-background py-4">
             <div className="screen-width-footer grid grid-cols-12 space-y-0">
@@ -31,67 +46,95 @@ function Footer() {
                     <div className="footer-item w-full">
                         <div className="grid grid-rows-2 font-semibold lg:flex lg:gap-x-10">
                             <div className="row-span-1 flex gap-x-3 lg:gap-x-10">
-                                <MotionTextWithIcon
-                                    icon={
-                                        <ArrowUpRight
-                                            className="social-link-arrow-icon"
-                                            strokeWidth={1.5}
-                                        />
+                                <a
+                                    href={
+                                        contacts?.portfolioUrl
+                                            ? contacts?.portfolioUrl
+                                            : "#"
                                     }
+                                    rel="noreferrer"
                                 >
-                                    <div className="social-link-text">
-                                        PORTFOLIO
-                                    </div>
-                                </MotionTextWithIcon>
-                                <MotionTextWithIcon
-                                    icon={
-                                        <ArrowUpRight
-                                            className="social-link-arrow-icon"
-                                            strokeWidth={1.5}
-                                        />
+                                    <MotionTextWithIcon
+                                        icon={
+                                            <ArrowUpRight
+                                                className="social-link-arrow-icon"
+                                                strokeWidth={1.5}
+                                            />
+                                        }
+                                    >
+                                        <div className="social-link-text">
+                                            PORTFOLIO
+                                        </div>
+                                    </MotionTextWithIcon>
+                                </a>
+                                <a href={contacts?.githubUrl} rel="noreferrer">
+                                    <MotionTextWithIcon
+                                        icon={
+                                            <ArrowUpRight
+                                                className="social-link-arrow-icon"
+                                                strokeWidth={1.5}
+                                            />
+                                        }
+                                        url={contacts?.githubUrl}
+                                    >
+                                        <div className="social-link-text">
+                                            GITHUB
+                                        </div>
+                                    </MotionTextWithIcon>
+                                </a>
+                                <a
+                                    href={
+                                        contacts?.email ? contacts?.email : "#"
                                     }
+                                    rel="noreferrer"
                                 >
-                                    <div className="social-link-text">
-                                        GITHUB
-                                    </div>
-                                </MotionTextWithIcon>
-                                <MotionTextWithIcon
-                                    icon={
-                                        <ArrowUpRight
-                                            className="social-link-arrow-icon"
-                                            strokeWidth={1.5}
-                                        />
-                                    }
-                                >
-                                    <div className="social-link-text">
-                                        EMAIL
-                                    </div>
-                                </MotionTextWithIcon>
+                                    <MotionTextWithIcon
+                                        icon={
+                                            <ArrowUpRight
+                                                className="social-link-arrow-icon"
+                                                strokeWidth={1.5}
+                                            />
+                                        }
+                                    >
+                                        <div className="social-link-text">
+                                            EMAIL
+                                        </div>
+                                    </MotionTextWithIcon>
+                                </a>
                             </div>
 
                             <div className="row-span-1 flex gap-x-3 lg:gap-x-10">
-                                <MotionTextWithIcon
-                                    icon={
-                                        <ArrowUpRight
-                                            className="social-link-arrow-icon"
-                                            strokeWidth={1.5}
-                                        />
-                                    }
+                                <a
+                                    href={contacts?.instagramUrl}
+                                    rel="noreferrer"
                                 >
-                                    <div className="social-link-text">
-                                        INSTAGRAM
-                                    </div>
-                                </MotionTextWithIcon>
-                                <MotionTextWithIcon
-                                    icon={
-                                        <ArrowUpRight
-                                            className="social-link-arrow-icon"
-                                            strokeWidth={1.5}
-                                        />
-                                    }
-                                >
-                                    <div className="social-link-text">X</div>
-                                </MotionTextWithIcon>
+                                    <MotionTextWithIcon
+                                        icon={
+                                            <ArrowUpRight
+                                                className="social-link-arrow-icon"
+                                                strokeWidth={1.5}
+                                            />
+                                        }
+                                    >
+                                        <div className="social-link-text">
+                                            INSTAGRAM
+                                        </div>
+                                    </MotionTextWithIcon>
+                                </a>
+                                <a href={contacts?.xUrl} rel="noreferrer">
+                                    <MotionTextWithIcon
+                                        icon={
+                                            <ArrowUpRight
+                                                className="social-link-arrow-icon"
+                                                strokeWidth={1.5}
+                                            />
+                                        }
+                                    >
+                                        <div className="social-link-text">
+                                            X
+                                        </div>
+                                    </MotionTextWithIcon>
+                                </a>
                             </div>
                         </div>
                     </div>

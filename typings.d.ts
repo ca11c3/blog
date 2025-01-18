@@ -7,3 +7,11 @@ interface IPost {
     demoVideo: { asset: { url: string; _id: string } };
     categories: string[];
 }
+
+interface IContact {
+    email: string;
+    githubUrl: string;
+    instagramUrl: string;
+    portfolioUrl: null;
+    xUrl: string;
+}
