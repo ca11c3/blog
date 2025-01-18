@@ -49,14 +49,15 @@ const textVariants = {
 type Props = {
     children: React.ReactNode;
     icon: React.ReactNode;
+    url?: string;
 };
 
-const MotionTextWithIcon: React.FC<Props> = ({ children, icon }) => {
+const MotionTextWithIcon: React.FC<Props> = ({ children, icon, url }) => {
     const [isHovered, setIsHovered] = React.useState(false);
 
     return (
         <motion.div
-            className="relative flex h-fit w-fit flex-row items-center justify-start py-1 pr-2 text-t-tertiary"
+            className="relative flex h-fit w-fit cursor-pointer flex-row items-center justify-start py-1 pr-2 text-t-tertiary"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

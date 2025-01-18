@@ -16,7 +16,7 @@ export default async function Home() {
     const posts = await getPosts();
 
     return (
-        <div className="mt-32 h-full w-full">
+        <div className="mt-32 h-full w-full pb-24">
             <div className="screen-width text-t-tertiary">
                 {/* Quote */}
                 <div className="flex h-[45vh] items-center justify-center lg:mx-auto lg:max-w-6xl">
@@ -72,7 +72,7 @@ export default async function Home() {
                         All Articles
                     </h1>
                     {/* tags  */}
-                    <div className="mt-2 flex h-full w-full flex-col space-y-8 pb-24">
+                    <div className="mt-2 flex h-full w-full flex-col space-y-8">
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
                             {posts.map((post: IPost) => (
                                 <VerticalCard key={post._id} post={post} />
