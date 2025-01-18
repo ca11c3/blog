@@ -15,11 +15,10 @@ export default function RootLayout({
     return (
         <div className="relative mx-auto flex w-full max-w-screen-2xl lg:gap-x-4">
             {/* Sidebar */}
-
-            {/* Main Content */}
             <div className="sticky top-32 hidden h-full max-h-screen w-96 overflow-y-scroll lg:block">
                 {sidebar}
             </div>
+            {/* Main Content */}
             <div className="w-full">{children}</div>
         </div>
     );

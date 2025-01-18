@@ -13,7 +13,7 @@ import { vertexChunk1, vertexChunk2 } from "../Shaders/vertextChunk";
 
 const LIGHT_BORDER = "#bec1c6";
 const DARK_BORDER = "#353535";
-function BulgeGrid() {
+function NightBulgeGrid() {
     const canvasRef = useRef<any>(null);
 
     return (
@@ -100,6 +100,8 @@ function Scene() {
                 window.innerWidth,
                 window.innerHeight,
             );
+
+            console.log("window.innerWidth:", window.innerWidth);
         };
 
         handleResize();
@@ -146,16 +148,16 @@ function Scene() {
                             setDomEl(el);
                         }
                     }}
-                    className="absolute left-0 top-0 h-screen w-screen"
+                    className="relative h-screen w-screen"
                     style={{
-                        backgroundColor: "#f4f5f7",
+                        backgroundColor: "#0d0d0d",
                     }}
                 >
                     <Image
-                        src={"/bulge-grid.svg"}
+                        src={"/bulge-grid-night.svg"}
                         alt="Grid"
                         fill
-                        className="h-full w-full scale-110 object-cover"
+                        className="object-cover"
                     />
                 </div>
             </Html>
@@ -175,4 +177,4 @@ function Scene() {
     );
 }
 
-export default BulgeGrid;
+export default NightBulgeGrid;

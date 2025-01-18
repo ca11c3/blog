@@ -20,7 +20,7 @@ export default async function Home() {
             <div className="screen-width text-t-tertiary">
                 {/* Quote */}
                 <div className="flex h-[45vh] items-center justify-center lg:mx-auto lg:max-w-6xl">
-                    <div className="pointer-events-none z-20 flex h-full w-full items-center justify-start font-paytone-one text-6xl font-black text-t-primary lg:text-8xl 2xl:text-9xl">
+                    <div className="pointer-events-none relative flex h-full w-full items-center justify-start font-paytone-one text-6xl font-black text-t-primary lg:text-8xl 2xl:text-9xl">
                         <TextRotateIn textType="word" staggerAmount={0.2}>
                             <>
                                 CREATE. <br /> <span> BUILD. DEBUG.</span>{" "}
@@ -68,11 +68,11 @@ export default async function Home() {
                 </StaggerObjectSlideIn>
 
                 <div className="pb-12 pt-20 lg:mx-auto lg:max-w-6xl">
-                    <h1 className="pb-4 text-[1.75rem] font-bold text-t-primary 2xl:text-4xl">
+                    <h1 className="pointer-events-none relative pb-4 text-[1.75rem] font-bold text-t-primary 2xl:text-4xl">
                         All Articles
                     </h1>
                     {/* tags  */}
-                    <div className="mt-2 flex h-full w-full flex-col space-y-8">
+                    <div className="mt-2 flex h-full w-full flex-col space-y-8 pb-24">
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
                             {posts.map((post: IPost) => (
                                 <VerticalCard key={post._id} post={post} />

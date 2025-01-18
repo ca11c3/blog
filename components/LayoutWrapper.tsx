@@ -4,6 +4,8 @@ import React, { createContext, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import BulgeGrid from "./R3F/BulgeGrid";
+import Image from "next/image";
+import NightBulgeGrid from "./R3F/NightBulgeGrid";
 
 type Props = {
     children: React.ReactNode;
@@ -20,7 +22,7 @@ export const ThemeContext = createContext<{
 const imgDomain = process.env.NEXT_PUBLIC_IMAGE_DOMAIN;
 
 function LayoutWrapper({ children }: Props) {
-    const [theme, setTheme] = useState("light" as "dark" | "light");
+    const [theme, setTheme] = useState("dark" as "dark" | "light");
 
     const pathname = usePathname();
 
@@ -32,15 +34,31 @@ function LayoutWrapper({ children }: Props) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <div
                 className={
-                    "touch-auto bg-background" +
+                    "touch-auto bg-background " +
                     (theme === "dark" ? "dark" : "")
                 }
             >
                 <div className="">
                     {pathname === "/" && (
-                        <div className="fixed left-0 top-0 h-screen w-screen">
-                            <div className="h-full w-full">
-                                <BulgeGrid />
+                        <div className="fixed left-0 top-0 z-0 h-screen w-screen">
+                            <div className="hidden h-full w-full md:block">
+                                {theme === "dark" ? (
+                                    <NightBulgeGrid />
+                                ) : (
+                                    <BulgeGrid />
+                                )}
+                            </div>
+                            <div className="h-full w-full md:hidden">
+                                <Image
+                                    src={
+                                        theme == "dark"
+                                            ? "/bulge-grid-night.svg"
+                                            : "/bulge-grid.svg"
+                                    }
+                                    alt="Grid"
+                                    fill
+                                    className="h-full w-full scale-110 object-cover"
+                                />
                             </div>
                         </div>
                     )}

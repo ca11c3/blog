@@ -28,7 +28,11 @@ export const fragmentChunk2 = /* glsl */ `
     #include <opaque_fragment>
 
    
-    vec3 color = texture2D(u_Texture, v_Uv).rgb;
-    gl_FragColor = vec4(color * vec3(1.,1.,1.), diffuseColor.a); 
+    float aspect = u_Resolution.y / u_Resolution.x;
+    vec2 scaledUV = vec2(v_Uv.x  , v_Uv.y * aspect);
+
+   
+    vec3 color = texture2D(u_Texture, scaledUV).rgb;
+    gl_FragColor = vec4( (color * color ) * outgoingLight , diffuseColor.a); 
   
 `;
