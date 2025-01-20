@@ -79,3 +79,14 @@ export async function getContact() {
     }`,
     );
 }
+
+export async function getMetadata(slug: string) {
+    return client.fetch(
+        groq`*[_type == "post" && slug.current == $slug]{
+      title,
+      description,
+      demoImage,
+    }`,
+        { slug },
+    );
+}
