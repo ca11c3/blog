@@ -1,7 +1,8 @@
 import { articleStyle } from "@/components/ArticlesStyle";
 import ReturnButton from "@/components/ReturnButton";
 import TableOfContent from "@/components/TableOfContent";
-import { getPost } from "@/sanity/lib/action";
+import { getMetadata, getPost } from "@/sanity/lib/action";
+import { Metadata } from "next";
 import { PortableText } from "next-sanity";
 
 type Props = {
@@ -9,6 +10,49 @@ type Props = {
         slug: string;
     };
 };
+
+export async function generateMetadata({
+    params: { slug },
+}: Props): Promise<Metadata> {
+    const post = await getMetadata(slug);
+
+    if (!post) {
+        return {
+            title: "Article not found not found",
+            description: "The requested post could not be found.",
+            openGraph: {
+                title: "Post not found",
+                description: "The requested post could not be found.",
+            },
+        };
+    }
+
+    const { title, description, demoImage } = post[0];
+
+    console.log("demoImage", demoImage);
+
+    return {
+        title: title,
+        description: description,
+        icons: {
+            icon: "https://img-chaosatleast.vercel.app/favicon.ico",
+        },
+        openGraph: {
+            title: title,
+            description: description,
+            siteName: "ChaosAtleast's Blog",
+            url: `${process.env.VERCEL_URL}/posts/${slug}`,
+            images: [
+                {
+                    url: demoImage.asset.url,
+                    width: 1200,
+                    height: 630,
+                    alt: `${title}`,
+                },
+            ],
+        },
+    };
+}
 
 async function page({ params: { slug } }: Props) {
     const post = await getPost(slug);
