@@ -34,6 +34,12 @@ const nextConfig = {
         // This allows the fs module to be loaded at runtime on the server-side,
         //  but not on the client-side
     },
+    compiler: {
+        removeConsole:
+            process.env.NODE_ENV === "production"
+                ? { exclude: ["error"] }
+                : false,
+    },
 };
 
 export default nextConfig;
